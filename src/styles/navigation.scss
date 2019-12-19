@@ -17,7 +17,7 @@
     letter-spacing: .8px;
     
     &:hover{
-        color: blue;
+        color: $blue;
     }
     
 }
@@ -26,6 +26,12 @@
     z-index: 1;
     font-size: 20px;
     color: $darkGrey;
+
+    &:hover{
+        background-color: $blue;
+        color: white;
+        border-radius: 100%;
+    }
 }
 
 .day {
@@ -36,10 +42,6 @@
     justify-content: center;
     flex-grow: 1;
 
-    &:hover{
-        background-color: blue;
-        color: white;
-        border-radius: 100%;
-    }
+    
 
 }
