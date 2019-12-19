@@ -78,12 +78,38 @@ html {
   padding-left: 5px;
   background-color: white;
   border-bottom: 1px solid #d5d5d5;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.day-name {
+  z-index: 1;
+  font-size: 9px;
+  color: #70757a;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 0.8px;
+}
+.day-name:hover {
+  color: #1a73e8;
+}
+
+.day-date {
+  z-index: 1;
+  font-size: 20px;
+  color: #3c4043;
+}
+.day-date:hover {
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 100%;
 }
 
 .day {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   flex-grow: 1;
 }
 
