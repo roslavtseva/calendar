@@ -5,19 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
     <header class="header">
-        <button class="header__button_create"></button>
-        <button class="header__button_today"></button>
-        <div class="header__week-toggle">
-            <span class="week-toggle__left"><i class="far fa-chevron-left"></i></span>
-            <span class="week-toggle__right"><i class="far fa-chevron-right"></i></span>
+        <div class="btn header__button_create">
+            <i class="fas fa-plus"></i>
+            Create
         </div>
-        <span class="header__current-week"></span>
+        <button class="btn header__button_today">Today</button>
+        <div class="header__week-toggle">
+            <span class="header__week-toggle_chevron-left ">
+                <i class="fas fa-chevron-left chevron"></i>
+            </span>
+            <span class="header__week-toggle_chevron-right">
+                <i class="fas fa-chevron-right chevron"></i>
+            </span>
+        </div>
+        <span class="header__current-week">Dec 2019</span>
     </header>
 </body>
 </html>
