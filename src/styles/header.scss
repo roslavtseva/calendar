@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(155, 154, 154, 0.75);
+    position: fixed;
+    background: #fff; // задать відступ контенту,
+                        // щоб не ховався під header
     
     &__button_create {
         width: 110px;
