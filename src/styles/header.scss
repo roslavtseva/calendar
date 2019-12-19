@@ -17,13 +17,20 @@
         color: $grey;
         font-weight: 500;
 
+        &:hover {
+            background-color: $lightGrey;
+        }
+
         .fa-plus {
             font-size: 20px;
+            background-image: linear-gradient(135deg, #ff1493, #f0f02f, #00ff00);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
         }
     }
 
     &__button_today {
-        width: 80px;
+        width: 70px;
         height: 30px;
         border-radius: 3px;
         border: 1px solid #80808080;
@@ -31,30 +38,32 @@
         margin-left: 40px;
         outline: none;
         font-weight: 500;
+
+        &:hover {
+            background-color: $lightGrey;
+        }
     }
 
     &__week-toggle {
+        
+        &_chevron-left {
+            margin-left: 30px;
+        }
+
+        &_chevron-right {
+            margin-left: 20px;
+        }
+
         .chevron {
             font-size: 15px;
             color: $grey;
             cursor: pointer;
-        }
-        .fa-chevron-left {
-            margin-left: 30px;
-        }
-        .fa-chevron-right {
-            margin-left: 20px;
         }
     }
 
     &__current-week {
         font-size: 17px;
         margin-left: 30px;
-        // color: $grey;
+        font-weight: 500;
     }
 }
-
-// .week-toggle__left {
-//     width: 15px;
-//     height: 15px;
-// }

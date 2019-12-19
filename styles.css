@@ -31,11 +31,17 @@ html {
   color: #808080;
   font-weight: 500;
 }
+.header__button_create:hover {
+  background-color: #ececec;
+}
 .header__button_create .fa-plus {
   font-size: 20px;
+  background-image: linear-gradient(135deg, #ff1493, #f0f02f, #00ff00);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 .header__button_today {
-  width: 80px;
+  width: 70px;
   height: 30px;
   border-radius: 3px;
   border: 1px solid #80808080;
@@ -44,20 +50,24 @@ html {
   outline: none;
   font-weight: 500;
 }
+.header__button_today:hover {
+  background-color: #ececec;
+}
+.header__week-toggle_chevron-left {
+  margin-left: 30px;
+}
+.header__week-toggle_chevron-right {
+  margin-left: 20px;
+}
 .header__week-toggle .chevron {
   font-size: 15px;
   color: #808080;
   cursor: pointer;
 }
-.header__week-toggle .fa-chevron-left {
-  margin-left: 30px;
-}
-.header__week-toggle .fa-chevron-right {
-  margin-left: 20px;
-}
 .header__current-week {
   font-size: 17px;
   margin-left: 30px;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=styles.css.map */
