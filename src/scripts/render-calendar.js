@@ -1,6 +1,6 @@
 const calendar = document.querySelector('.calendar');
 
-const renderCalendar = () => {
+export const renderCalendar = () => {
     const week = document.createElement('div');
     week.classList.add('week');
     calendar.append(week);
