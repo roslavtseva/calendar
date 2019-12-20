@@ -120,13 +120,13 @@ html {
   height: 100vh;
   background-color: #fff;
 }
-.calendar .week {
+.calendar__week-bar {
   display: flex;
 }
-.calendar .week .day {
+.calendar__day-bar {
   width: 200px;
 }
-.calendar .week .day .hour {
+.calendar__hour-bar {
   width: 100%;
   height: 50px;
   border-bottom: 1px solid #d5d5d5;
