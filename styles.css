@@ -101,10 +101,13 @@ html {
 }
 
 .day-date {
+  display: flex;
+  justify-content: center;
   z-index: 1;
   font-size: 20px;
   color: #3c4043;
   padding: 6px;
+  min-width: 35px;
 }
 .day-date:hover {
   background-color: #1a73e8;
