@@ -17,7 +17,7 @@
     text-transform: uppercase;
     margin-bottom: 5px;
     letter-spacing: .8px;
-    
+
     
     &:hover{
         color: $blue;
@@ -27,10 +27,13 @@
 }
 
 .day-date {
+    display: flex;
+    justify-content: center;
     z-index: 1;
     font-size: 20px;
     color: $text-darkGrey;
     padding: 6px;
+    min-width: 35px;
 
 
     &:hover{
