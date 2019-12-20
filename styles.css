@@ -141,4 +141,22 @@ html {
   color: #70757a;
 }
 
+.calendar {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+.calendar__week-bar {
+  display: flex;
+}
+.calendar__day-bar {
+  width: 200px;
+}
+.calendar__hour-bar {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #d5d5d5;
+  border-right: 1px solid #d5d5d5;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -20,6 +20,7 @@ function renderSidebar () {
   sidebar.append(...dayHours);
 };
 
+
 //export { renderSidebar };
 
 
