@@ -1,1 +1,1 @@
-import { renderCalendar } from './render-calendar';
+import { renderCalendar } from './render-calendar.js';
