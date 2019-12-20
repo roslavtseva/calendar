@@ -28,7 +28,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: #808080;
+  color: #3c404399;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -36,8 +36,8 @@ html {
   background-color: #ececec;
 }
 .header__button_create .fa-plus {
-  font-size: 20px;
-  background-image: linear-gradient(135deg, #ff1493, #f0f02f, #00ff00);
+  font-size: 25px;
+  background-image: linear-gradient(135deg, #ff1493, #ffff56, #00ff00);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -45,8 +45,9 @@ html {
   width: 70px;
   height: 30px;
   border-radius: 3px;
-  border: 1px solid #80808080;
+  border: 1px solid #d5d5d5;
   background-color: #fff;
+  color: #3c4043;
   margin-left: 40px;
   outline: none;
   font-weight: 500;
@@ -69,6 +70,7 @@ html {
   font-size: 17px;
   margin-left: 30px;
   font-weight: 500;
+  color: #3c4043;
 }
 
 .days-of-week {
