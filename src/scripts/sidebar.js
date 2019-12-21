@@ -10,45 +10,19 @@ function renderSidebar () {
     
     const sidebarHourText = document.createElement('span');
     sidebarHourText.classList.add('sidebar__hour-text');
-    
-    sidebarHourText.textContent = `${(hour < 10) ? '0' + hour : hour}:00`;
-    
+
+    if (hour < 10) {
+      sidebarHourText.textContent = '0' + hour + ' :00';
+    } else {
+      sidebarHourText.textContent = hour + ' :00';
+    }
+       
+    sidebar.append(sidebarHour);
     sidebarHour.append(sidebarHourText);
-    dayHours.push(sidebarHour);
   }
-  
-  sidebar.append(...dayHours);
+  // sidebar.append(...dayHours);
 };
 
+renderSidebar();
 
-//export { renderSidebar };
-
-
-
-// const sidebarHTML = document.querySelector(".sidebar");
-// const dayHours = 24;
-
-// const renderSidebar = hourItems => {
-
-  
-//   const itemsHour = hourItems
-//   .map((el) => {
-//     for (hour = 0; hour < dayHours; hour++) {
-
-//       const sidebarHour = document.createElement("div");
-//       sidebarHour.classList.add("sidebar__hour");
-
-//       const sidebarHourText = document.createElement("span");
-//       sidebarHourText.classList.add("sidebar__hour-text");
-
-//       sidebarHourText.value = hour;
-
-//       sidebarHour.append(sidebarHourText);
-//       return sidebarHour;
-//     }
-//   });
-
-//   sidebarHTML.append(...itemsHour);
-// };
-
-// console.log(renderSidebar());
+export { renderSidebar };

@@ -133,6 +133,7 @@ html {
   display: flex;
   position: absolute;
   flex-direction: column;
+  display: none;
 }
 
 .sidebar {
@@ -142,6 +143,7 @@ html {
   width: 60px;
   background-color: #fff;
   border-right: 1px solid #d5d5d5;
+  margin-top: 160px;
 }
 .sidebar__hour {
   top: -6px;

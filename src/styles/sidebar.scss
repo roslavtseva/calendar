@@ -5,6 +5,7 @@
     width: 60px;
     background-color: $white;
     border-right: 1px solid #d5d5d5;
+    margin-top: 160px; // щоб починався рівно під навігацією
     
     &__hour{
         top: -6px;
