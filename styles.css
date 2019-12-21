@@ -133,13 +133,43 @@ html {
 .popup {
   width: 400px;
   height: 400px;
-  background-color: #ececec;
+  padding: 10px;
+  background-color: #fff;
+  color: #70757a;
   border-radius: 5px;
-  box-shadow: 0px 6px 22px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   position: absolute;
+  top: 180px;
+  left: 100px;
   flex-direction: column;
+  outline: none;
   display: none;
+}
+.popup__close-btn {
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 1s;
+}
+.popup__close-btn:hover {
+  transform: rotate(90deg);
+}
+.popup__title-input {
+  width: 300px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #d5d5d5;
+  align-self: flex-end;
+}
+.popup__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+}
+.popup__info_date-created {
+  outline: none;
+  border: none;
 }
 
 .sidebar {
