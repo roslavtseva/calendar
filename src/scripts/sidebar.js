@@ -1,7 +1,6 @@
 
 function renderSidebar () {
   const sidebar = document.querySelector('.sidebar');
-  const dayHours = [];
   
   for (let hour = 0; hour < 24; hour++) {
     
@@ -11,18 +10,40 @@ function renderSidebar () {
     const sidebarHourText = document.createElement('span');
     sidebarHourText.classList.add('sidebar__hour-text');
 
-    if (hour < 10) {
-      sidebarHourText.textContent = '0' + hour + ' :00';
-    } else {
-      sidebarHourText.textContent = hour + ' :00';
-    }
+    sidebarHourText.textContent = `${(hour < 10) ? '0' + hour : hour}:00`;
        
     sidebar.append(sidebarHour);
     sidebarHour.append(sidebarHourText);
   }
-  // sidebar.append(...dayHours);
+
+  const firstHour = sidebar.firstChild;
+  firstHour.classList.add('sidebar__no-display');
 };
 
 renderSidebar();
 
 export { renderSidebar };
+
+
+// function renderSidebar () {
+//   const sidebar = document.querySelector('.sidebar');
+//   const dayHours = [];
+  
+//   for (let hour = 0; hour < 24; hour++) {
+    
+//     const sidebarHour = document.createElement('div');
+//     sidebarHour.classList.add('sidebar__hour');
+    
+//     const sidebarHourText = document.createElement('span');
+//     sidebarHourText.classList.add('sidebar__hour-text');
+    
+//     sidebarHourText.textContent = `${(hour < 10) ? '0' + hour : hour}:00`;
+    
+//     sidebarHour.append(sidebarHourText);
+//     dayHours.push(sidebarHour);
+//   }
+  
+//   sidebar.append(...dayHours);
+// };
+
+// renderSidebar();
