@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
     <link rel="stylesheet" href="styles.css" />
-    <script src="./src/scripts/index.js" type="module"></script>
-    
     <title>Document</title>
   </head>
   <body>
@@ -74,7 +72,25 @@
       </section>
       <!--CALENDAR-->
       <section class="calendar"></section>
-    </main>    
+    </main>
+    
+
+    <!-- POPUP -->
+
+    <div class="popup">
+      <div class="popup__close-btn"><i class="fas fa-times"></i></div>
+      <div class="popup__text-input"></div>
+      <div class="popup__info">
+        <span class="popup__info_date-created"></span>
+        <span class="popup__info_duration"></span>
+        <span class="popup__info_current-date"></span>
+      </div>
+      <div class="popup__description"></div>
+      <div class="popup__action">
+        <span class="popup__action_delete"><i class="fas fa-trash-alt"></i></span>
+        <button class="popup__action_create"></button>
+      </div>
+    </div>
 
   </body>
 
