@@ -21,9 +21,9 @@ function renderSidebar () {
 };
 
 
-//export { renderSidebar };
+export { renderSidebar };
 
-
+renderSidebar();
 
 // const sidebarHTML = document.querySelector(".sidebar");
 // const dayHours = 24;
