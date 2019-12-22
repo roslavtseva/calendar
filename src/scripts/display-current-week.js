@@ -5,18 +5,18 @@ const displayCurrentWeek = () => {
     const newDate = new Date();
     const currentDate = newDate.getDate();
     const currentDay = newDate.getDay();
+
     let daysLeft = 6;
     let daysToCurrent = currentDay - 1;
     for (let i = 0; i < week.length; i++) {
         if (currentDay == 0) {
             const day = new Date(newDate).setDate(newDate.getDate() - daysLeft);
             week[i].textContent = new Date(day).getDate();
-            daysLeft--;
             week[week.length - 1].textContent = currentDate;
             week[week.length - 1].classList.add('day-date_current');
+            daysLeft--;
         } else {
             const day = new Date(newDate).setDate(currentDate - daysToCurrent);
-            console.log(new Date(day).getDate());
             week[i].textContent = new Date(day).getDate();
             week[currentDay - 1].classList.add('day-date_current');
             daysToCurrent--;

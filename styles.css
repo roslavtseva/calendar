@@ -115,6 +115,11 @@ html {
   padding: 6px;
   min-width: 35px;
 }
+.day-date_current {
+  background-color: #1a73e8;
+  color: #fff;
+  border-radius: 100%;
+}
 .day-date:hover {
   background-color: #1a73e8;
   color: #fff;
