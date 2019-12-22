@@ -1,0 +1,46 @@
+.popup {
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    background-color: $white;
+    color: $text-grey;
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.75);
+    display: flex;
+    position: absolute;
+    top: 180px;
+    left: 100px;
+    flex-direction: column;
+    outline: none;
+    display: none;
+
+    &__close-btn {
+        align-self: flex-end;
+        cursor: pointer;
+        transition: 1s;
+
+        &:hover {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__title-input {
+        width: 300px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid $classicGrey;
+        align-self: flex-end;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 10px;
+
+        &_date-created {
+            outline: none;
+            border: none;
+        }
+    }
+}
