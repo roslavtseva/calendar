@@ -1,35 +1,34 @@
-export { displayCurrentWeek };
+import { week } from './storage.js';
+import { createDaysOfWeek } from './render-week.js';
 
-const displayCurrentWeek = () => {
-    const week = [...document.querySelectorAll('.day-date')];
-    const newDate = new Date();
-    const currentDate = newDate.getDate();
-    const currentDay = newDate.getDay();
-
-    let daysLeft = 6;
-    let daysToCurrent = currentDay - 1;
+const displayCurrentWeek = (week) => {
+    const currentDate = new Date().getDate();
+    const currentDay = new Date().getDay();
+    console.log(currentDay);
     for (let i = 0; i < week.length; i++) {
-        if (currentDay == 0) {
-            const day = new Date(newDate).setDate(newDate.getDate() - daysLeft);
-            week[i].textContent = new Date(day).getDate();
-            week[week.length - 1].textContent = currentDate;
-            week[week.length - 1].classList.add('day-date_current');
-            daysLeft--;
+
+        if (i < currentDay) {
+            let date = currentDate - (i + 1);
+            week[i].date = new Date(new Date().setDate(date)).getDate();
+        } else if (i == currentDay) {
+            week[i].date = currentDate;
         } else {
-            const day = new Date(newDate).setDate(currentDate - daysToCurrent);
-            week[i].textContent = new Date(day).getDate();
-            week[currentDay - 1].classList.add('day-date_current');
-            daysToCurrent--;
+            let date = currentDate + (i - 1);
+            week[i].date = new Date(new Date().setDate(date)).getDate();
         }
     }
 };
-displayCurrentWeek();
 
-const todayBtn = document.querySelector('.header__button_today');
-const todayWeekSwitcher = () => {
-    displayCurrentWeek();
-};
-const switchToTodaysWeek = todayBtn.addEventListener('click', todayWeekSwitcher);
+displayCurrentWeek(week);
+createDaysOfWeek(week);
+export { displayCurrentWeek };
+
+
+// const todayBtn = document.querySelector('.header__button_today');
+// const todayWeekSwitcher = () => {
+//     displayCurrentWeek();
+// };
+// const switchToTodaysWeek = todayBtn.addEventListener('click', todayWeekSwitcher);
 
 
 

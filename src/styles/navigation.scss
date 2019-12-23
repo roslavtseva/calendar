@@ -36,15 +36,15 @@
     padding: 6px;
     min-width: 35px;
 
-    &_current {
-        background-color: $blue;
-        color: $text-white;
-        border-radius: 100%;
-    }
-    
     &:hover{
         background-color: $lightGrey;
         color: $text-darkGrey;
+        border-radius: 100%;
+    }
+
+    &_current {
+        background-color: $blue;
+        color: $text-white;
         border-radius: 100%;
     }
     
