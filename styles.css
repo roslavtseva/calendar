@@ -69,14 +69,14 @@ html {
   color: #808080;
   cursor: pointer;
 }
-.header__current-week {
+.header__current-monthAndYear {
   font-size: 17px;
   margin-left: 30px;
   font-weight: 500;
   color: #3c4043;
 }
 
-.days-of-week {
+.days-container {
   display: flex;
   position: fixed;
   z-index: 1;
@@ -88,7 +88,7 @@ html {
   border-bottom: 1px solid #d5d5d5;
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
-.days-of-week .gmt {
+.days-container .gmt {
   min-width: 50px;
   font-size: 10px;
   align-self: flex-end;
@@ -101,9 +101,6 @@ html {
   text-transform: uppercase;
   margin-bottom: 5px;
   letter-spacing: 0.8px;
-}
-.day-name:hover {
-  color: #1a73e8;
 }
 
 .day-date {
@@ -121,9 +118,12 @@ html {
   border-radius: 100%;
 }
 .day-date:hover {
-  background-color: #1a73e8;
-  color: #fff;
+  background-color: #ececec;
+  color: #3c4043;
   border-radius: 100%;
+}
+.day-date:active {
+  background-color: blue;
 }
 
 .day {

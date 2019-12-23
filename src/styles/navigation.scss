@@ -1,4 +1,4 @@
-.days-of-week {
+.days-container {
     display: flex;
     position: fixed;
     z-index: 1;
@@ -25,9 +25,6 @@
     margin-bottom: 5px;
     letter-spacing: .8px;
 
-    &:hover{
-        color: $blue;  
-    } 
 }
 
 .day-date {
@@ -46,9 +43,13 @@
     }
     
     &:hover{
-        background-color: $blue;
-        color: $text-white;
+        background-color: $lightGrey;
+        color: $text-darkGrey;
         border-radius: 100%;
+    }
+    
+    &:active{
+        background-color: blue;
     }
 }
 
