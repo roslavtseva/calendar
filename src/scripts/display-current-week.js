@@ -1,6 +1,9 @@
 import { week } from './storage.js';
 import { createDaysOfWeek } from './render-week.js';
 
+export { displayCurrentWeek };
+
+
 const displayCurrentWeek = (week) => {
     const currentDate = new Date().getDate();
     const currentDay = new Date().getDay();
@@ -21,8 +24,6 @@ const displayCurrentWeek = (week) => {
 };
 
 displayCurrentWeek(week);
-export { displayCurrentWeek };
-
 
 // const todayBtn = document.querySelector('.header__button_today');
 // const todayWeekSwitcher = () => {
