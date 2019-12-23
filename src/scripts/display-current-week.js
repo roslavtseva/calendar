@@ -9,7 +9,7 @@ export { switchWeekBackward };
 const displayCurrentWeek = (week) => {
     const currentDate = new Date().getDate();
     const currentDay = new Date().getDay();
-    console.log(currentDay);
+
     for (let i = 0; i < week.length; i++) {
 
         if (i < currentDay) {
@@ -39,12 +39,10 @@ const switchToTodaysWeek = todayBtn.addEventListener('click', todayWeekSwitcher)
 
 
 const forwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-right');
-
 function forwardSwitcher(week) {
     let newWeek = [...week];
 
     newWeek.map(day => {
-
         const newDate = day.date;
         const newDay = newDate.getDate();
 
@@ -57,12 +55,10 @@ const switchWeekForward = forwardSwitcherBtn.addEventListener('click', forwardSw
 
 
 const backwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-left');
-
 const backwardSwitcher = (week) => {
     let newWeek = [...week];
 
     newWeek.map(day => {
-
         const newDate = day.date;
         const newDay = newDate.getDate();
 
