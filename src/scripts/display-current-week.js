@@ -17,10 +17,10 @@ const displayCurrentWeek = (week) => {
             week[i].date = new Date(new Date().setDate(date)).getDate();
         }
     }
+    createDaysOfWeek(week);
 };
 
 displayCurrentWeek(week);
-createDaysOfWeek(week);
 export { displayCurrentWeek };
 
 
