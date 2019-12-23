@@ -25,7 +25,9 @@ function createDaysOfWeek(week){
         }
 
         dayDate.classList.add('day-date');
-        dayDate.textContent = week[i].date;
+        const date = week[i].date;
+        
+        dayDate.textContent = new Date(date).getDate();
         oneDay.append(dayDate);
         
         daysContainer.append(oneDay);

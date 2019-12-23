@@ -12,12 +12,12 @@ const displayCurrentWeek = (week) => {
 
         if (i < currentDay) {
             let date = currentDate - (i + 1);
-            week[i].date = new Date(new Date().setDate(date)).getDate();
+            week[i].date = new Date(new Date().setDate(date));
         } else if (i == currentDay) {
-            week[i].date = currentDate;
+            week[i].date = new Date();
         } else {
             let date = currentDate + (i - 1);
-            week[i].date = new Date(new Date().setDate(date)).getDate();
+            week[i].date = new Date(new Date().setDate(date));
         }
     }
     createDaysOfWeek(week);
@@ -34,16 +34,27 @@ displayCurrentWeek(week);
 
 
 
-// const forwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-right');
-// const backwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-left');
+const forwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-right');
+const backwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-left');
 
-// const forwardSwitcher = () => {
+function forwardSwitcher(week) {
+    
+    return week.map(day => {
 
-// };
+        console.log(week);
 
-// const backwardSwitcher = () => {
+        const date = day.date.getDate();
+    });
+};
 
-// };
+export const switchWeekForward = forwardSwitcherBtn.addEventListener('click', forwardSwitcher.bind(forwardSwitcherBtn, week));
 
-// const switchWeekForward = forwardSwitcherBtn.addEventListener('click', forwardSwitcher);
+
+
 // const switchWeekBackward = backwardSwitcherBtn.addEventListener('click', backwardSwitcher);
+// export { switchWeekForward };
+
+
+// const backwardSwitcher = (week) => {
+
+// };
