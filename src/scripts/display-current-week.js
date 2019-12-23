@@ -2,6 +2,8 @@ import { week } from './storage.js';
 import { createDaysOfWeek } from './render-week.js';
 
 export { displayCurrentWeek };
+export { switchWeekForward };
+export { switchWeekBackward };
 
 
 const displayCurrentWeek = (week) => {
@@ -25,36 +27,47 @@ const displayCurrentWeek = (week) => {
 
 displayCurrentWeek(week);
 
-// const todayBtn = document.querySelector('.header__button_today');
-// const todayWeekSwitcher = () => {
-//     displayCurrentWeek();
-// };
-// const switchToTodaysWeek = todayBtn.addEventListener('click', todayWeekSwitcher);
+
+
+const todayBtn = document.querySelector('.header__button_today');
+const todayWeekSwitcher = () => {
+    displayCurrentWeek(week);
+};
+const switchToTodaysWeek = todayBtn.addEventListener('click', todayWeekSwitcher);
 
 
 
 
 const forwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-right');
-const backwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-left');
 
 function forwardSwitcher(week) {
-    
-    return week.map(day => {
+    let newWeek = [...week];
 
-        console.log(week);
+    newWeek.map(day => {
 
-        const date = day.date.getDate();
+        const newDate = day.date;
+        const newDay = newDate.getDate();
+
+        day.date = new Date(new Date(newDate).setDate(newDay + 7));
     });
+    createDaysOfWeek(week);
 };
-
-export const switchWeekForward = forwardSwitcherBtn.addEventListener('click', forwardSwitcher.bind(forwardSwitcherBtn, week));
-
+const switchWeekForward = forwardSwitcherBtn.addEventListener('click', forwardSwitcher.bind(forwardSwitcherBtn, week));
 
 
-// const switchWeekBackward = backwardSwitcherBtn.addEventListener('click', backwardSwitcher);
-// export { switchWeekForward };
 
+const backwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron-left');
 
-// const backwardSwitcher = (week) => {
+const backwardSwitcher = (week) => {
+    let newWeek = [...week];
 
-// };
+    newWeek.map(day => {
+
+        const newDate = day.date;
+        const newDay = newDate.getDate();
+
+        day.date = new Date(new Date(newDate).setDate(newDay - 7));
+    });
+    createDaysOfWeek(week);
+};
+const switchWeekBackward = backwardSwitcherBtn.addEventListener('click', backwardSwitcher.bind(backwardSwitcherBtn, week));
