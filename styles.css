@@ -144,7 +144,6 @@ html {
   left: 100px;
   flex-direction: column;
   outline: none;
-  display: none;
 }
 .popup__close-btn {
   align-self: flex-end;
@@ -170,6 +169,17 @@ html {
 .popup__info_date-created {
   outline: none;
   border: none;
+}
+.popup__info_date-end {
+  outline: none;
+  border: none;
+}
+.popup__color-scheme {
+  margin: 45px 0 0 45px;
+  text-align: left;
+}
+.popup__color-scheme_label-text {
+  margin-right: 15px;
 }
 
 .sidebar {

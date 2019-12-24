@@ -42,5 +42,17 @@
             outline: none;
             border: none;
         }
+        &_date-end {
+            outline: none;
+            border: none;
+        }
     }
+
+        &__color-scheme{
+            margin: 45px 0 0 45px;
+            text-align: left;
+        }
+        &__color-scheme_label-text{
+            margin-right: 15px;
+        }
 }

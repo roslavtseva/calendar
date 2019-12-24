@@ -77,15 +77,21 @@
     <div class="popup">
       <div class="popup__close-btn"><i class="fas fa-times"></i></div>
       <input class="popup__title-input" type="text" value="Add Title"></input>
+      <div class="popup__color-scheme">
+        <label class="popup__color-scheme_label">
+            <span class="popup__color-scheme_label-text">Choose a color</span>
+            <input class="popup__color-scheme_chooser" type="color" name="ColorChooser" value="#41abf1">
+        </label>
       <div class="popup__info">
         <div class="popup__info_icon"><i class="far fa-clock"></i></div>
         <input class="popup__info_date-created" type="date"></input>
         <div class="popup__info_duration">
           <input type="datetime" class="popup__info_duration-from">
           <input type="datetime" class="popup__info_duration-to">
-
+          
         </div>
-        <input class="popup__info_current-date"></input>
+        <input class="popup__info_date-end" type="date"></input>
+
       </div>
       <div class="popup__description">
         <div class="popup__description_icon"><i class="fas fa-align-left"></i></div>
