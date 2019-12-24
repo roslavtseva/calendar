@@ -1,4 +1,5 @@
 .popup-modal {
+    display: flex;
     width: 410px;
     height: 400px;
     padding: 10px;
@@ -9,7 +10,8 @@
     position: absolute;
     top: 180px;
     left: 100px;
-    display: none;
+    //display: none;
+
 }
 
 .popup {
@@ -24,6 +26,7 @@
         align-self: flex-end;
         display: flex;
         flex-direction: column;
+
 
         &_close-btn {
             align-self: flex-end;
@@ -42,7 +45,14 @@
             border-bottom: 1px solid $classicGrey;
             align-self: flex-end;
             margin-top: 10px;
+            color: $text-grey;
+
         }
+    }
+
+    &__color-scheme{
+        margin-top: -60px;
+        margin-left: 200px;
     }
 
     &__info {
@@ -51,16 +61,22 @@
         align-items: center;
         padding-left: 10px;
 
+
+
         &_date-from {
             outline: none;
             border: none;
             font-size: 15px;
+            color: $text-grey;
+
         }
 
         &_date-to {
             outline: none;
             border: none;
             font-size: 15px;
+            color: $text-grey;
+
         }
 
         &_duration {
@@ -75,11 +91,15 @@
     &__description {
         padding-left: 10px;
         display: flex;
+
+
         
         &_text {
             outline: none;
             border: none;
             margin-left: 20px;
+            color: $text-grey;
+
         }
     }
 
