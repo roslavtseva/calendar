@@ -1,4 +1,6 @@
-import { week } from './storage.js';
+import { currentWeek } from './display-current-week.js';
+
+export { createDaysOfWeek };
 
 function createDaysOfWeek(week){
     const daysContainer = document.querySelector('.days-container');
@@ -15,24 +17,18 @@ function createDaysOfWeek(week){
         
         const dayName = document.createElement('span');
         dayName.classList.add('day-name');
-        dayName.textContent = week[i].name;
+        dayName.textContent = week[i].toDateString().split(' ')[0];
         oneDay.append(dayName);
 
         const dayDate = document.createElement('div');
+        dayDate.classList.add('day-date');
+        dayDate.textContent = week[i].getDate();
+        oneDay.append(dayDate);
 
-        if (i == new Date().getDay()) {
+        if (week[i].toDateString() == new Date().toDateString()) {
             dayDate.classList.add('day-date_current');
         }
-
-        dayDate.classList.add('day-date');
-        const date = week[i].date;
-        
-        dayDate.textContent = new Date(date).getDate();
-        oneDay.append(dayDate);
         
         daysContainer.append(oneDay);
     }
 };
-
-// createDaysOfWeek();
-export { createDaysOfWeek };
