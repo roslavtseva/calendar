@@ -30,10 +30,7 @@
     </header>
 
     <!--NAVIGATION-->
-    <nav class="days-container">
-        <div class="gmt">gmt+02</div>
-          
-    </nav>
+    <nav class="days-container"></nav>
 
     <main class="main-part">
       <!--SIDEBAR-->
@@ -45,27 +42,31 @@
 
     <!-- POPUP -->
 
-    <div class="popup">
-      <div class="popup__close-btn"><i class="fas fa-times"></i></div>
-      <input class="popup__title-input" type="text" value="Add Title"></input>
-      <div class="popup__info">
-        <div class="popup__info_icon"><i class="far fa-clock"></i></div>
-        <input class="popup__info_date-created" type="date"></input>
-        <div class="popup__info_duration">
-          <input type="datetime" class="popup__info_duration-from">
-          <input type="datetime" class="popup__info_duration-to">
-
+    <div class="popup-modal">
+      <form class="popup">      
+        <div class="popup__header">
+          <i class="fas fa-times popup__header_close-btn"></i>
+          <input class="popup__header_title-input" type="text" value="Add Title"></input>
         </div>
-        <input class="popup__info_current-date"></input>
-      </div>
-      <div class="popup__description">
-        <div class="popup__description_icon"><i class="fas fa-align-left"></i></div>
-        <input type="text" value="Add Description"></input>
-      </div>
-      <div class="popup__action">
-        <span class="popup__action_delete"><i class="fas fa-trash-alt"></i></span>
-        <button class="popup__action_create"></button>
-      </div>
+        <div class="popup__info">
+          <div class="popup__info_icon"><i class="far fa-clock"></i></div>
+          <input class="popup__info_date-from" type="date" data-date-from=""></input>
+          <div class="popup__info_duration">
+            <select class="popup__info_duration-from" name="timeFrom"></select>
+            <div class="popup__info_duration-line"> - </div>
+            <select class="popup__info_duration-to" name="timeTo"></select>
+          </div>
+          <input class="popup__info_date-to" type="date" data-date-to=""></input>
+        </div>
+        <div class="popup__description">
+          <div class="popup__description_icon"><i class="fas fa-align-left"></i></div>
+          <input class="popup__description_text" type="text" value="Add Description"></input>
+        </div>
+        <div class="popup__action">
+          <span class="popup__action_delete"><i class="fas fa-trash-alt"></i></span>
+          <button class="popup__action_save">Save</button>
+        </div>
+      </form>
     </div>
 
   </body>

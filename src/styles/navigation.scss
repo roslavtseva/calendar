@@ -41,6 +41,12 @@
         color: $text-darkGrey;
         border-radius: 100%;
     }
+
+    &_current {
+        background-color: $blue;
+        color: $text-white;
+        border-radius: 100%;
+    }
     
     &:active{
         background-color: blue;

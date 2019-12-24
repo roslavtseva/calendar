@@ -1,10 +1,9 @@
 export const week = [
-    {name: 'Sun', date: 1},
-    {name: 'Mon', date: 2},
-    {name: 'Tue', date: 3},
-    {name: 'Wed', date: 4},
-    {name: 'Thu', date: 5},
-    {name: 'Fri', date: 6},
-    {name: 'Sat', date: 7},
-    
+    {name: 'Sun', date: new Date()},
+    {name: 'Mon', date: new Date()},
+    {name: 'Tue', date: new Date()},
+    {name: 'Wed', date: new Date()},
+    {name: 'Thu', date: new Date()},
+    {name: 'Fri', date: new Date()},
+    {name: 'Sat', date: new Date()},
 ];
