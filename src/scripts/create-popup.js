@@ -20,38 +20,48 @@ const formFieldPopUp = {
 
 function showPopupByClick() {
     calendarDays.addEventListener('click', ); 
-    navigateCreateButton.addEventListener('click', );//show popup funk
+    сreateButton.addEventListener('click', );//show popup funk
     buttonClose.addEventListener('click', );
  
 };
 
-function showSavedEvent(event) {
-    showPopupByClick();
+
+
+
+
+
+
+
+// function showSavedEvent(event) {
+//     showPopupByClick();
+//     eventId = event.target.closest(/*dayEvent*/).dataset.eventId;
+//     popup.dataset.idEvent = eventId;
+//     const selectedEvent = getEventById(+eventId);
     
-    formFieldPopUp.name.value = selectedEvent.name;
-    formFieldPopUp.dateStart.value = dateToString(selectedEvent.dateFrom);
-    formFieldPopUp.dateEnd.value = dateToString(selectedEvent.dateTo);
-    formFieldPopUp.timeStart.value = timeToString(selectedEvent.timeFrom);
-    formFieldPopUp.timeEnd.value = timeToString(selectedEvent.timeTo);
-    formFieldPopUp.description.value = selectedEvent.description;
-    formFieldPopUp.color.value = selectedEvent.color;
-};
+//     formFieldPopUp.name.value = selectedEvent.name;
+//     formFieldPopUp.dateFrom.value = dateToString(selectedEvent.dateFrom);
+//     formFieldPopUp.dateTo.value = dateToString(selectedEvent.dateTo);
+//     formFieldPopUp.timeFrom.value = timeToString(selectedEvent.timeFrom);
+//     formFieldPopUp.timeTo.value = timeToString(selectedEvent.timeTo);
+//     formFieldPopUp.description.value = selectedEvent.description;
+//     formFieldPopUp.color.value = selectedEvent.color;
+// };
 
-function dateToString(date) {
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    month = month < 10 ? '0' + month : month;
-    let day = date.getDate();
-    day = day < 10 ? '0' + day : day;
+// function dateToString(date) {
+//     let year = date.getFullYear();
+//     let month = date.getMonth() + 1;
+//     month = month < 10 ? '0' + month : month;
+//     let day = date.getDate();
+//     day = day < 10 ? '0' + day : day;
 
-    return `${year}-${month}-${day}`;
-};
+//     return `${year}-${month}-${day}`;
+// };
 
-function timeToString(date) {
-    let hour = date.getHours();
-    hour = hour < 10 ? '0' + hour : hour;
-    let minutes = date.getMinutes();
-    minutes = minutes < 10 ? '0' + minutes : minutes;
+// function timeToString(date) {
+//     let hour = date.getHours();
+//     hour = hour < 10 ? '0' + hour : hour;
+//     let minutes = date.getMinutes();
+//     minutes = minutes < 10 ? '0' + minutes : minutes;
 
-    return `${hour}:${minutes}`;
-}
+//     return `${hour}:${minutes}`;
+// }
