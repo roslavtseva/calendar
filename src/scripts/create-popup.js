@@ -1,29 +1,78 @@
 
-const popup = document.querySelector('.popup');
+
+const popup = document.querySelector('.popup-modal');
+
+
 const createButton = document.querySelector('.header__button_create');
 const createEventOnPopup = document.querySelector('.popup__action_create');
+
 const calendarDays = document.querySelector('.calendar');
+const weekBar = document.querySelector('.calendar__week-bar');
+
 const buttonClose = document.querySelector('.popup__header_close-btn');
 const deleteButton = document.querySelector('.popup__action_delete');
 
 
 
 const formFieldPopUp = {
-    name: document.querySelector('.popup__title-input'),
+    name: document.querySelector('.popup__header_title-input'),
     dateFrom: document.querySelector('.popup__info_date-from'),
     dateTo: document.querySelector('.popup__info_date-to'),
     timeFrom: document.querySelector('.popup__info_duration-from'),
     timeTo: document.querySelector('.popup__info_duration-to'),
-    description: document.querySelector('.popup__description'),
+    description: document.querySelector('.popup__description_text'),
     color: document.querySelector('.popup__color-scheme_chooser'),
 };
 
-function showPopupByClick() {
-    calendarDays.addEventListener('click', ); 
-    сreateButton.addEventListener('click', );//show popup funk
-    buttonClose.addEventListener('click', );
- 
-};
+export function showPopup(event) {
+   // popup.classList.add('popup-displayed')
+   popup.style.display = 'block';
+
+}
+weekBar.addEventListener('click', showPopup); 
+createButton.addEventListener('click', showPopup); 
+
+
+
+export function closePopup(event) {
+const currentPopupTitle = document.querySelector('.popup__header_title-input');
+currentPopupTitle.value= '';
+
+const currentPopupDescription = document.querySelector('.popup__description_text');
+currentPopupDescription.value= '';
+
+    popup.style.display = 'none';
+
+}
+buttonClose.addEventListener('click', closePopup); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export function showPopupByClick(event) {
+//     //createButton.onclick = showPopup(event);
+    
+//     // createButton.addEventListener('click', showPopup );//show popup funk
+//     // buttonClose.addEventListener('click', );
+    
+// };
+
+
 
 
 
