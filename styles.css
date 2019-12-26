@@ -147,6 +147,7 @@ html {
   position: absolute;
   top: 180px;
   left: 100px;
+  display: none;
 }
 
 .popup {
@@ -188,6 +189,12 @@ html {
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
+}
+.popup__info_icon {
+  transition: 2s;
+}
+.popup__info_icon:hover {
+  transform: rotate(360deg);
 }
 .popup__info_date-from {
   outline: none;
@@ -253,7 +260,7 @@ html {
 .sidebar__hour {
   top: -6px;
   position: relative;
-  min-height: 50px;
+  min-height: 60px;
   padding-right: 8px;
   text-align: right;
 }
@@ -284,9 +291,19 @@ html {
 }
 .calendar__hour-bar {
   width: 100%;
-  height: 50px;
+  height: 60px;
   border-bottom: 1px solid #d5d5d5;
   border-right: 1px solid #d5d5d5;
+}
+
+.day-event {
+  width: 90%;
+  height: 100px;
+  font-size: 11px;
+  color: #fff;
+  background-color: #1a73e8;
+  border-radius: 5px;
+  padding: 2px;
 }
 
 /*# sourceMappingURL=styles.css.map */

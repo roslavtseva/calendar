@@ -44,7 +44,6 @@ const displayCurrentWeek = (week) => {
 };
 
 displayCurrentWeek(currentWeek);
-console.log(currentWeek);
 
 
 

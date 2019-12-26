@@ -10,7 +10,7 @@
     position: absolute;
     top: 180px;
     left: 100px;
-    //display: none;
+    display: none;
 
 }
 
@@ -61,7 +61,13 @@
         align-items: center;
         padding-left: 10px;
 
-
+        &_icon {
+            transition: 2s;
+        
+            &:hover {
+                transform: rotate(360deg);
+            }
+        }
 
         &_date-from {
             outline: none;
