@@ -1,5 +1,4 @@
 import {currentWeek} from './display-current-week.js';
-import { renderSidebar } from './sidebar.js';
 
 const popup = document.querySelector('.popup-modal');
 
@@ -33,8 +32,7 @@ const formFieldPopUp = {
 
 export function createPopup (event) {
     formFieldPopUp.dateFrom = currentWeek[event.target.dataset.day].getDay().toString();
-    formFieldPopUp.timeFrom = currentWeek[event.target.dataset.hour].getHours.     
-    formFieldPopUp.timeFrom = 
+    formFieldPopUp.dateFrom = currentWeek[event.target.dataset.hour].getDate().toString();
     // formFieldPopUp.timeTo = event.target.dataset.hour + 1;
 
     console.log(formFieldPopUp.dateFrom);
