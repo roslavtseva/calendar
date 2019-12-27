@@ -1,8 +1,8 @@
 export const events = [
     {
         title: 'Stand UP!',
-        timeFrom: new Date('2019', '11', '25', '08', '45', '10'),
-        timeTo: new Date('2019', '11', '25', '09', '00', '10'),
+        timeFrom: new Date('2019', '11', '25', '08', '45', '00'),
+        timeTo: new Date('2019', '11', '25', '09', '00', '00'),
         description: undefined,
     },
     {
@@ -14,19 +14,19 @@ export const events = [
     {
         title: '30-th annyversary',
         timeFrom: new Date('2019', '11', '26', '18', '15', '00'),
-        timeTo: new Date('2019', '11', '26', '21', '45', '10'),
+        timeTo: new Date('2019', '11', '26', '21', '45', '00'),
         description: undefined,
     },
-    // {
-    //     title: 'Take John from school',
-    //     timeFrom: new Date('2019,11,24,11,30,30'),
-    //     timeTo: new Date('2019,11,24,11,45,10'),
-    //     description: undefined,
-    // },
-    // {
-    //     title: 'Watch A.I. programm',
-    //     timeFrom: new Date('2019,11,27,14,45,25'),
-    //     timeTo: new Date('2019,11,27,16,30,45'),
-    //     description: 'about colonization',
-    // },
+    {
+        title: 'OOOOOOOps!',
+        timeFrom: new Date('2019', '11', '30', '11', '30', '00'),
+        timeTo: new Date('2019', '11', '30', '11', '45', '00'),
+        description: undefined,
+    },
+    {
+        title: 'Watch A.I. programm',
+        timeFrom: new Date('2019', '11', '27', '14', '45', '00'),
+        timeTo: new Date('2019', '11', '28', '16', '30', '00'),
+        description: 'about colonization',
+    },
 ];

@@ -1,6 +1,11 @@
+import { currentWeek } from './display-current-week.js';
+
+export { renderCalendar };
+ 
 const calendar = document.querySelector('.calendar');
 
-export const renderCalendar = () => {
+const renderCalendar = () => {
+    calendar.innerHTML = '';
     const week = document.createElement('div');
     week.classList.add('calendar__week-bar');
     calendar.append(week);
@@ -16,27 +21,11 @@ export const renderCalendar = () => {
             hour.classList.add('calendar__hour-bar');
             hour.setAttribute('data-day', i - 1);
             hour.setAttribute('data-hour', j - 1);
+            hour.setAttribute('data-date', currentWeek[i - 1]);
+            // console.log(currentWeek[i]);
             hour.setAttribute('data-id', `${i - 1}${j - 1}`);
-
+            
             day.append(hour);
         }
     }
 }
-renderCalendar();
- 
-
-
-// function renderSidebar() {
-//     const sidebar = document.querySelector('.sidebar');
-//     const dayHours = [];
-//     for (let hour = 0; hour < 24; hour++) {
-//       const sidebarHour = document.createElement('div');
-//       sidebarHour.classList.add('sidebar__hour');
-//       const sidebarHourText = document.createElement('span');
-//       sidebarHourText.classList.add('sidebar__hour-text');
-//       sidebarHourText.textContent = `${(hour < 10) ? '0' + hour : hour}:00`;
-//       sidebarHour.append(sidebarHourText);
-//       dayHours.push(sidebarHour);
-//     }
-//     sidebar.append(...dayHours);
-// }
