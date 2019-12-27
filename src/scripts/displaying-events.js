@@ -47,10 +47,10 @@ function splitLongEvent(arr) {
         if (event.timeFrom.getDate() !== event.timeTo.getDate()) {
 
             acc.push(event);
-            
             console.log(acc);
-            return acc;
         }
+
+        return acc;
     }, []);
 }
 
