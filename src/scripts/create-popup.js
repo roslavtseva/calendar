@@ -16,7 +16,7 @@ const deleteButton = document.querySelector('.popup__action_delete');
 
 
 const formFieldPopUp = {
-    name: document.querySelector('.popup__header_title-input'),
+    title: document.querySelector('.popup__header_title-input'),
     dateFrom: document.querySelector('.popup__info_date-from'),
     dateTo: document.querySelector('.popup__info_date-to'),
     timeFrom: document.querySelector('.popup__info_duration-from'),

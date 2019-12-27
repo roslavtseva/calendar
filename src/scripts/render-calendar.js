@@ -22,10 +22,8 @@ const renderCalendar = () => {
             hour.setAttribute('data-day', i - 1);
             hour.setAttribute('data-hour', j - 1);
             hour.setAttribute('data-date', currentWeek[i - 1]);
-            // console.log(currentWeek[i]);
             hour.setAttribute('data-id', `${i - 1}${j - 1}`);
 
-        
             day.append(hour);
         }
     }
