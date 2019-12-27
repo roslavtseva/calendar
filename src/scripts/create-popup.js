@@ -1,13 +1,15 @@
-
+import {currentWeek} from './display-current-week.js';
+import { renderSidebar } from './sidebar.js';
 
 const popup = document.querySelector('.popup-modal');
 
 
 const createButton = document.querySelector('.header__button_create');
-const createEventOnPopup = document.querySelector('.popup__action_create');
+
 
 const calendarDays = document.querySelector('.calendar');
 const weekBar = document.querySelector('.calendar__week-bar');
+const dayCell = document.querySelector('.calendar__hour-bar');
 
 const buttonClose = document.querySelector('.popup__header_close-btn');
 const deleteButton = document.querySelector('.popup__action_delete');
@@ -24,13 +26,37 @@ const formFieldPopUp = {
     color: document.querySelector('.popup__color-scheme_chooser'),
 };
 
+
+
+
+
+
+export function createPopup (event) {
+    formFieldPopUp.dateFrom = currentWeek[event.target.dataset.day].getDay().toString();
+    formFieldPopUp.timeFrom = currentWeek[event.target.dataset.hour].getHours.     
+    formFieldPopUp.timeFrom = 
+    // formFieldPopUp.timeTo = event.target.dataset.hour + 1;
+
+    console.log(formFieldPopUp.dateFrom);
+    console.log(formFieldPopUp.timeFrom);
+
+    showPopup();
+};
+// console.log(createPopup(event));
+
+
+
+
+
+
+
 export function showPopup(event) {
-   // popup.classList.add('popup-displayed')
    popup.style.display = 'block';
 
+
 }
-weekBar.addEventListener('click', showPopup); 
-createButton.addEventListener('click', showPopup); 
+weekBar.addEventListener('click', createPopup); 
+createButton.addEventListener('click', createPopup); 
 
 
 
@@ -45,6 +71,7 @@ currentPopupDescription.value= '';
 
 }
 buttonClose.addEventListener('click', closePopup); 
+
 
 
 
