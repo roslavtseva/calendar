@@ -144,6 +144,7 @@ html {
   border-radius: 5px;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   position: fixed;
+  z-index: 1;
   top: 180px;
   left: 100px;
   display: none;
@@ -180,14 +181,14 @@ html {
   color: #70757a;
 }
 .popup__color-scheme {
-  margin-top: -60px;
-  margin-left: 200px;
+  padding-left: 10px;
 }
 .popup__info {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
+  color: #70757a;
 }
 .popup__info_icon {
   transition: 2s;
@@ -209,9 +210,12 @@ html {
 }
 .popup__info_duration {
   display: flex;
+  align-items: center;
 }
-.popup__info_duration-from {
+.popup__info_duration-from, .popup__info_duration-to {
   outline: none;
+  border: none;
+  color: #70757a;
 }
 .popup__description {
   padding-left: 10px;
@@ -301,6 +305,7 @@ html {
   font-size: 11px;
   color: #fff;
   background-color: #1a73e8;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   border-radius: 3px;
   padding: 2px;
   position: absolute;

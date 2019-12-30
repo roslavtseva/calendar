@@ -63,6 +63,15 @@ export const events = [
         description: 'about colonization',
     },
     {
+        title: 'Tooo long3333333',
+        dateFrom: new Date('2020', '00', '04', '15', '45'),
+        dateTo: new Date('2020', '00', '05', '01', '15'),
+        // timeFrom: '12:30',
+        // timeTo: '16:45',
+        id: 403,
+        description: 'Having a rest',
+    },
+    {
         title: 'Drink vodka',
         dateFrom: new Date('2019', '11', '31', '19', '00'),
         dateTo: new Date('2020', '0', '01', '03', '15'),
@@ -70,5 +79,14 @@ export const events = [
         // timeTo: '03:15',
         id: 12456,
         description: 'Happy N.Y!!!!',
+    },
+    {
+        title: 'Eat pizza',
+        dateFrom: new Date('2020', '00', '06', '12', '30'),
+        dateTo: new Date('2020', '00', '06', '13', '15'),
+        // timeFrom: '12:30',
+        // timeTo: '16:45',
+        id: 403,
+        description: 'Order from restaurant',
     },
 ];

@@ -31,8 +31,6 @@ const formFieldPopUp = {
 
 
 export function createPopup (event) {
-
-
     formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
