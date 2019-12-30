@@ -1,6 +1,6 @@
 import { createDaysOfWeek } from './render-week.js';
 import { renderCalendar } from './render-calendar.js';
-import { displayEvents } from './displaying-events.js';
+import { displayEvents } from './displaying-events.js'; // , splitLongEvent, splitedEvents
 import { events } from './storage.js';
 
 export { currentWeek };

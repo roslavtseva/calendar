@@ -27,7 +27,6 @@ const formFieldPopUp = {
 };
 
 
-console.log(formFieldPopUp);
 
 
 
@@ -37,25 +36,21 @@ export function createPopup (event) {
     formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
+    console.log(formFieldPopUp.timeFrom.value);
     formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
     if (`${event.target.dataset.hour}` > 9 ){
         formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
         formFieldPopUp.timeTo.value = `${+event.target.dataset.hour +1}:00`;
     } 
 
-
-
-   
-    console.log(formFieldPopUp.dateFrom);
-    console.log(formFieldPopUp.timeFrom);
-
-
+    // console.log(formFieldPopUp.dateFrom);
+    // console.log(formFieldPopUp.timeFrom);
 };
 // console.log(createPopup(event));
 
 export function showPopup(event) {
    popup.style.display = 'block';
-   createPopup();
+   createPopup(event);
 
 }
 
