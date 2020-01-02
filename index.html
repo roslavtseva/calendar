@@ -46,35 +46,35 @@
       <form class="popup">      
         <div class="popup__header">
           <i class="fas fa-times popup__header_close-btn"></i>
-          <input class="popup__header_title-input" type="text" placeholder="Add Title"></input>
+          <input class="popup__header_title-input" type="text" name="title" placeholder="Add Title"></input>
         </div>
 
         <div class="popup__color-scheme">
           <label class="popup__color-scheme_label">
               <span class="popup__color-scheme_label-text">Choose a color</span>
-              <input class="popup__color-scheme_chooser" type="color" name="ColorChooser" value="#1a73e8">
+              <input class="popup__color-scheme_chooser" type="color" name="colorChooser" value="#1a73e8">
           </label>
       </div>
 
         <div class="popup__info">
           <div class="popup__info_icon"><i class="far fa-clock"></i></div>
-          <input class="popup__info_date-from" type="date" data-date-from=""></input>
+          <input class="popup__info_date-from" type="date" name="dateFrom"></input>
           <div class="popup__info_duration">
             <input class="popup__info_duration-from" name="timeFrom" type="time"></input>
             <div class="popup__info_duration-line"> - </div>
             <input class="popup__info_duration-to" name="timeTo" type="time"></input>
           </div>
-          <input class="popup__info_date-to" type="date" data-date-to=""></input>
+          <input class="popup__info_date-to" type="date" name="dateTo"></input>
         </div>
 
         <div class="popup__description">
           <div class="popup__description_icon"><i class="fas fa-align-left"></i></div>
-          <input class="popup__description_text" type="text" placeholder="Add Description"></input>
+          <input class="popup__description_text" type="text" name="description" placeholder="Add Description"></input>
         </div>
         
         <div class="popup__action">
           <span class="popup__action_delete"><i class="fas fa-trash-alt"></i></span>
-          <button class="popup__action_save">Save</button>
+          <input class="popup__action_save" type="submit" value="Save"></input>
         </div>
       </form>
     </div>

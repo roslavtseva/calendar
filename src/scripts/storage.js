@@ -73,7 +73,7 @@ export const events = [
     },
     {
         title: 'Drink vodka',
-        dateFrom: new Date('2019', '11', '31', '19', '00'),
+        dateFrom: new Date('2019', '11', '31', '21', '00'),
         dateTo: new Date('2020', '0', '01', '03', '15'),
         // timeFrom: '19:00',
         // timeTo: '03:15',

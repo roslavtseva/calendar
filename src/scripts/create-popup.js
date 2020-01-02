@@ -1,7 +1,10 @@
 import {currentWeek} from './display-current-week.js';
 import {events} from './storage.js';
 
+export { popupForm, saveButton };
+
 const popup = document.querySelector('.popup-modal');
+const popupForm = document.querySelector('.popup');
 
 
 const createButton = document.querySelector('.header__button_create');
@@ -12,6 +15,7 @@ const weekBar = document.querySelector('.calendar__week-bar');
 const dayCell = document.querySelector('.calendar__hour-bar');
 
 const buttonClose = document.querySelector('.popup__header_close-btn');
+const saveButton = document.querySelector('.popup__action_save');
 const deleteButton = document.querySelector('.popup__action_delete');
 
 
@@ -33,13 +37,14 @@ const formFieldPopUp = {
 export function createPopup (event) {
     formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
-    formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
-    console.log(formFieldPopUp.timeFrom.value);
-    formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
+    // console.log(formFieldPopUp.timeFrom.value);
     if (`${event.target.dataset.hour}` > 9 ){
         formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
         formFieldPopUp.timeTo.value = `${+event.target.dataset.hour +1}:00`;
-    } 
+    } else {
+        formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
+        formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
+    }
 
     // console.log(formFieldPopUp.dateFrom);
     // console.log(formFieldPopUp.timeFrom);
@@ -49,7 +54,6 @@ export function createPopup (event) {
 export function showPopup(event) {
    popup.style.display = 'block';
    createPopup(event);
-
 }
 
 
@@ -61,11 +65,11 @@ createButton.addEventListener('click', showPopup);
 
 
 export function closePopup(event) {
-const currentPopupTitle = document.querySelector('.popup__header_title-input');
-currentPopupTitle.value= '';
+    const currentPopupTitle = document.querySelector('.popup__header_title-input');
+    currentPopupTitle.value= '';
 
-const currentPopupDescription = document.querySelector('.popup__description_text');
-currentPopupDescription.value= '';
+    const currentPopupDescription = document.querySelector('.popup__description_text');
+    currentPopupDescription.value= '';
 
     popup.style.display = 'none';
 

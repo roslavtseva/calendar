@@ -188,7 +188,7 @@ html {
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
-  color: #70757a;
+  font-size: 18px;
 }
 .popup__info_icon {
   transition: 2s;
@@ -199,13 +199,11 @@ html {
 .popup__info_date-from {
   outline: none;
   border: none;
-  font-size: 15px;
   color: #70757a;
 }
 .popup__info_date-to {
   outline: none;
   border: none;
-  font-size: 15px;
   color: #70757a;
 }
 .popup__info_duration {
@@ -305,7 +303,6 @@ html {
   font-size: 11px;
   color: #fff;
   background-color: #1a73e8;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   border-radius: 3px;
   padding: 2px;
   position: absolute;

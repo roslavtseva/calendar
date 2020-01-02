@@ -58,7 +58,7 @@
         flex-direction: row;
         align-items: center;
         padding-left: 10px;
-        color: $text-grey;
+        font-size: 18px;
 
         &_icon {
             transition: 2s;
@@ -71,14 +71,12 @@
         &_date-from {
             outline: none;
             border: none;
-            font-size: 15px;
             color: $text-grey;
         }
 
         &_date-to {
             outline: none;
             border: none;
-            font-size: 15px;
             color: $text-grey;
         }
 
