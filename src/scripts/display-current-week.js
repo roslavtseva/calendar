@@ -1,11 +1,15 @@
 import { createDaysOfWeek } from './render-week.js';
+import { renderCalendar } from './render-calendar.js';
+import { displayEvents } from './displaying-events.js'; // , splitLongEvent, splitedEvents
+import { events } from './storage.js';
 
+export { currentWeek };
 export { displayCurrentWeek };
 export { switchWeekForward };
 export { switchWeekBackward };
 export { displayMonth };
 
-export const currentWeek = [
+const currentWeek = [
     new Date(),
     new Date(),
     new Date(),
@@ -41,6 +45,8 @@ const displayCurrentWeek = (week) => {
     }
     displayMonth(currentWeek);
     createDaysOfWeek(currentWeek);
+    renderCalendar();
+    displayEvents(events);
 };
 
 displayCurrentWeek(currentWeek);
@@ -50,6 +56,8 @@ displayCurrentWeek(currentWeek);
 const todayBtn = document.querySelector('.header__button_today');
 const todayWeekSwitcher = () => {
     displayCurrentWeek(currentWeek);
+    renderCalendar();
+    displayEvents(events);
 };
 const switchToTodaysWeek = todayBtn.addEventListener('click', todayWeekSwitcher);
 
@@ -66,6 +74,8 @@ function forwardSwitcher(currentWeek) {
     });
     displayMonth(currentWeek);
     createDaysOfWeek(currentWeek);
+    renderCalendar();
+    displayEvents(events);
 };
 const switchWeekForward = forwardSwitcherBtn.addEventListener('click', forwardSwitcher.bind(forwardSwitcherBtn, currentWeek));
 
@@ -81,6 +91,8 @@ const backwardSwitcher = (currentWeek) => {
     });
     displayMonth(currentWeek);
     createDaysOfWeek(currentWeek);
+    renderCalendar();
+    displayEvents(events);
 };
 const switchWeekBackward = backwardSwitcherBtn.addEventListener('click', backwardSwitcher.bind(backwardSwitcherBtn, currentWeek));
 
