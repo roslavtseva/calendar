@@ -3,7 +3,7 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
 }
 
 .btn {
@@ -18,7 +18,7 @@ html {
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(155, 154, 154, 0.75);
-  background-color: #fff;
+  background: linear-gradient(90deg, #26ecdb 3%, #18adf4 47%, rgba(142, 58, 255, 0.9906337535) 95%);
   position: fixed;
   z-index: 9999;
 }
@@ -26,37 +26,40 @@ html {
   width: 110px;
   height: 40px;
   border-radius: 20px;
-  box-shadow: 0px 1px 2px 0px rgba(155, 154, 154, 0.75);
+  box-shadow: 9px 11px 19px -9px rgba(0, 0, 0, 0.62);
   margin-left: 80px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: #3c404399;
+  color: #42d7de;
   font-weight: 500;
   letter-spacing: 0.5px;
+  background-color: #f0f7fe;
 }
 .header__button_create:hover {
-  background-color: #ececec;
+  background-color: #42d7de;
+  color: #fff;
 }
 .header__button_create .fa-plus {
   font-size: 25px;
-  background-image: linear-gradient(135deg, #ff1493, #ffff56, #00ff00);
+  background: linear-gradient(167deg, #28d2e4 46%, #14aef6 63%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
 .header__button_today {
   width: 70px;
   height: 30px;
-  border-radius: 3px;
-  border: 1px solid #d5d5d5;
-  background-color: #fff;
-  color: #3c4043;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #1dadf4;
+  color: #fff;
   margin-left: 40px;
   outline: none;
   font-weight: 500;
 }
 .header__button_today:hover {
-  background-color: #ececec;
+  background-color: #325ce8;
 }
 .header__week-toggle_chevron-left {
   margin-left: 30px;
@@ -66,14 +69,23 @@ html {
 }
 .header__week-toggle .chevron {
   font-size: 15px;
-  color: #808080;
+  color: #f0f7fe;
   cursor: pointer;
 }
 .header__current-month-year {
   font-size: 17px;
   margin-left: 30px;
   font-weight: 500;
-  color: #3c4043;
+  color: #fff;
+  font-family: roboto;
+}
+
+.fa-chevron-right:hover {
+  color: #6d49f6;
+}
+
+.fa-chevron-left:hover {
+  color: #6d49f6;
 }
 
 .days-container {
@@ -87,6 +99,7 @@ html {
   color: #70757a;
   border-bottom: 1px solid #d5d5d5;
   font-family: Roboto, Helvetica, Arial, sans-serif;
+  box-shadow: 0px 8px 5px -2px rgba(0, 0, 0, 0.1);
 }
 .days-container .gmt {
   min-width: 50px;
@@ -118,12 +131,9 @@ html {
   border-radius: 100%;
 }
 .day-date_current {
-  background-color: #1a73e8;
+  background-color: #1dadf4;
   color: #fff;
   border-radius: 100%;
-}
-.day-date:active {
-  background-color: blue;
 }
 
 .day {
@@ -137,10 +147,11 @@ html {
 
 .popup-modal {
   display: flex;
-  height: 400px;
+  height: 300px;
+  max-width: 100%;
   padding: 10px;
   background-color: #fff;
-  color: #70757a;
+  color: #293dce;
   border-radius: 5px;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   position: fixed;
@@ -181,14 +192,16 @@ html {
   color: #70757a;
 }
 .popup__color-scheme {
-  padding-left: 10px;
+  margin-left: 400px;
+}
+.popup__color-scheme_label-text {
+  color: #70757a;
 }
 .popup__info {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
-  font-size: 18px;
 }
 .popup__info_icon {
   transition: 2s;
@@ -231,6 +244,7 @@ html {
 }
 .popup__action_delete {
   cursor: pointer;
+  padding-left: 10px;
 }
 .popup__action_save {
   width: 90px;
@@ -240,7 +254,7 @@ html {
   outline: none;
   cursor: pointer;
   color: #fff;
-  background-color: #1a73e8;
+  background-color: #6d49f6;
   font-size: 17px;
 }
 
@@ -281,7 +295,7 @@ html {
 .calendar {
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: #e2fbfc;
   margin-top: 160px;
 }
 .calendar__week-bar {
@@ -297,12 +311,15 @@ html {
   border-right: 1px solid #d5d5d5;
   position: relative;
 }
+.calendar__hour-bar:hover {
+  background-color: #c4e9fb;
+}
 
 .day-event {
   width: 90%;
   font-size: 11px;
   color: #fff;
-  background-color: #1a73e8;
+  background: linear-gradient(167deg, #7e6de8 5%, #1aa8be 100%);
   border-radius: 3px;
   padding: 2px;
   position: absolute;

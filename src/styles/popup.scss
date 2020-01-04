@@ -2,10 +2,11 @@
 
 .popup-modal {
     display: flex;
-    height: 400px;
+    height: 300px;
+    max-width: 100%;
     padding: 10px;
     background-color: $white;
-    color: $text-grey;
+    color:$dark-violet-blue;
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.75);
     position: fixed;
@@ -50,7 +51,10 @@
     }
 
     &__color-scheme{
-        padding-left: 10px;
+        margin-left: 400px;
+    }
+    &__color-scheme_label-text{
+        color: $text-grey;
     }
 
     &__info {
@@ -58,7 +62,7 @@
         flex-direction: row;
         align-items: center;
         padding-left: 10px;
-        font-size: 18px;
+
 
         &_icon {
             transition: 2s;
@@ -110,6 +114,7 @@
 
         &_delete {
             cursor: pointer;
+            padding-left: 10px;
         }
 
         &_save {
@@ -120,7 +125,9 @@
             outline: none;
             cursor: pointer;
             color: $text-white;
-            background-color: $blue;
+            background-color: $light-violet;
+ 
+
             font-size: 17px;
         }
     }
