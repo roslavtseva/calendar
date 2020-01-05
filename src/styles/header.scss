@@ -26,6 +26,11 @@
         &:hover {
             background-color: #42d7de;
             color: $white;
+            .fa-plus{
+                background: $white;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+            }
         }
 
         .fa-plus {

@@ -40,6 +40,11 @@ html {
   background-color: #42d7de;
   color: #fff;
 }
+.header__button_create:hover .fa-plus {
+  background: #fff;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
 .header__button_create .fa-plus {
   font-size: 25px;
   background: linear-gradient(167deg, #28d2e4 46%, #14aef6 63%);
@@ -189,7 +194,7 @@ html {
   border-bottom: 1px solid #d5d5d5;
   align-self: flex-end;
   margin-top: 10px;
-  color: #70757a;
+  color: #6d49f6;
 }
 .popup__color-scheme {
   margin-left: 400px;
@@ -295,7 +300,6 @@ html {
 .calendar {
   width: 100%;
   height: 100vh;
-  background-color: #e2fbfc;
   margin-top: 160px;
 }
 .calendar__week-bar {
@@ -305,6 +309,7 @@ html {
   width: 100%;
 }
 .calendar__hour-bar {
+  background-color: #e2fbfc;
   width: 100%;
   height: 60px;
   border-bottom: 1px solid #d5d5d5;
