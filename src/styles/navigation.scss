@@ -9,7 +9,7 @@
     color: $text-grey;
     border-bottom: 1px solid #d5d5d5;
     font-family: Roboto,Helvetica,Arial,sans-serif;
-
+    box-shadow: 0px 8px 5px -2px rgba(0,0,0,0.1);
     .gmt {
         min-width: 50px;
         font-size: 10px;
@@ -40,17 +40,16 @@
         background-color: $lightGrey;
         color: $text-darkGrey;
         border-radius: 100%;
+        //border: 1px solid $violet;
     }
 
     &_current {
-        background-color: $blue;
+        background-color: $sky-blue;
         color: $text-white;
         border-radius: 100%;
     }
     
-    &:active{
-        background-color: blue;
-    }
+    
 }
 
 .day {
