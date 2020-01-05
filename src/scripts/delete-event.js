@@ -17,4 +17,4 @@ function deleteEvent(events, id) {
     return events;
 }
 
-console.log(deleteEvent(events, 400));
+// console.log(deleteEvent(events, 400));

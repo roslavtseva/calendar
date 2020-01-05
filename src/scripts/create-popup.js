@@ -1,7 +1,11 @@
 import {currentWeek} from './display-current-week.js';
 import {events} from './storage.js';
 
-export { popupForm, saveButton };
+export { popupForm,
+    saveButton,
+    closePopup,
+    createPopup,
+    createPopupButton };
 
 const popup = document.querySelector('.popup-modal');
 const popupForm = document.querySelector('.popup');
@@ -32,39 +36,41 @@ const formFieldPopUp = {
 
 
 
-
-
-export function createPopup (event) {
+function createPopup(event) {
     formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
-    // console.log(formFieldPopUp.timeFrom.value);
-    if (`${event.target.dataset.hour}` > 9 ){
+
+    if (event.target.dataset.hour > 9 ){
         formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
-        formFieldPopUp.timeTo.value = `${+event.target.dataset.hour +1}:00`;
+        formFieldPopUp.timeTo.value = `${+event.target.dataset.hour + 1}:00`;
     } else {
         formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
         formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
     }
-
-    // console.log(formFieldPopUp.dateFrom);
-    // console.log(formFieldPopUp.timeFrom);
+    popup.style.display = 'block';
 };
-// console.log(createPopup(event));
-
-export function showPopup(event) {
-   popup.style.display = 'block';
-   createPopup(event);
-}
+weekBar.addEventListener('click', createPopup); 
 
 
 
+function createPopupButton() {
+    const date = new Date();
+    formFieldPopUp.dateFrom.value = date.toLocaleDateString().split('.').reverse().join('-');
+    formFieldPopUp.dateTo.value = date.toLocaleDateString().split('.').reverse().join('-');
 
-weekBar.addEventListener('click', showPopup); 
-createButton.addEventListener('click', showPopup); 
+    if (date.getHours() > 9 ){
+        formFieldPopUp.timeFrom.value = `${date.getHours()}:00`;
+        formFieldPopUp.timeTo.value = `${date.getHours() + 1}:00`;
+    } else {
+        formFieldPopUp.timeFrom.value = `0${date.getHours()}:00`;
+        formFieldPopUp.timeTo.value = `0${date.getHours() + 1}:00`;
+    }
+    popup.style.display = 'block';
+};
+createButton.addEventListener('click', createPopupButton); 
 
 
-
-export function closePopup(event) {
+function closePopup(event) {
     const currentPopupTitle = document.querySelector('.popup__header_title-input');
     currentPopupTitle.value= '';
 

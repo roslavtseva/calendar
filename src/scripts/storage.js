@@ -32,7 +32,7 @@ export const events = [
         dateTo: new Date('2020', '00', '04', '03', '45'),
         // timeFrom: '12:30',
         // timeTo: '16:45',
-        id: 403,
+        id: 4076567,
         description: 'Having a rest',
     },
     {
@@ -86,7 +86,7 @@ export const events = [
         dateTo: new Date('2020', '00', '06', '13', '15'),
         // timeFrom: '12:30',
         // timeTo: '16:45',
-        id: 403,
+        id: 40768,
         description: 'Order from restaurant',
     },
 ];
