@@ -1,13 +1,16 @@
 import { createDaysOfWeek } from './render-week.js';
 import { renderCalendar } from './render-calendar.js';
-import { displayEvents } from './displaying-events.js'; // , splitLongEvent, splitedEvents
+import { displayEvents } from './displaying-events.js';
 import { events } from './storage.js';
+import { createPopup } from './create-popup.js';
 
-export { currentWeek };
-export { displayCurrentWeek };
-export { switchWeekForward };
-export { switchWeekBackward };
-export { displayMonth };
+
+export { currentWeek,
+    displayCurrentWeek,
+    switchWeekForward,
+    switchWeekBackward,
+    displayMonth
+};
 
 const currentWeek = [
     new Date(),
@@ -50,8 +53,6 @@ const displayCurrentWeek = (week) => {
 };
 
 displayCurrentWeek(currentWeek);
-
-
 
 const todayBtn = document.querySelector('.header__button_today');
 const todayWeekSwitcher = () => {

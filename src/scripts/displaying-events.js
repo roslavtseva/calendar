@@ -1,6 +1,11 @@
 import { events } from './storage.js';
+import { createPopup } from './create-popup.js';
 
 export { displayEvents };
+
+
+// const weekBar = document.querySelector('.calendar__week-bar');
+// weekBar.addEventListener('click', createPopup); 
 
 function displayEvents(events) {
     
@@ -34,6 +39,10 @@ function displayEvents(events) {
 
         const divMargin = dateFrom.getMinutes();
         eventDiv.style.marginTop = `${divMargin}px`;
+
+
+        const weekBar = document.querySelector('.calendar__week-bar');
+        weekBar.addEventListener('click', createPopup);
     });
 }
 

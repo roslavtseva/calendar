@@ -1,11 +1,14 @@
 import {currentWeek} from './display-current-week.js';
 import {events} from './storage.js';
 
-export { popupForm,
+export { 
+    // weekBar,
+    popupForm,
     saveButton,
     closePopup,
     createPopup,
-    createPopupButton };
+    createPopupButton,
+};
 
 const popup = document.querySelector('.popup-modal');
 const popupForm = document.querySelector('.popup');
@@ -15,7 +18,7 @@ const createButton = document.querySelector('.header__button_create');
 
 
 const calendarDays = document.querySelector('.calendar');
-const weekBar = document.querySelector('.calendar__week-bar');
+// const weekBar = document.querySelector('.calendar__week-bar');
 const dayCell = document.querySelector('.calendar__hour-bar');
 
 const buttonClose = document.querySelector('.popup__header_close-btn');
@@ -48,8 +51,10 @@ function createPopup(event) {
         formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
     }
     popup.style.display = 'block';
+    deleteButton.style.visibility = 'hidden';
+
 };
-weekBar.addEventListener('click', createPopup); 
+// weekBar.addEventListener('click', createPopup); 
 
 
 
@@ -66,6 +71,7 @@ function createPopupButton() {
         formFieldPopUp.timeTo.value = `0${date.getHours() + 1}:00`;
     }
     popup.style.display = 'block';
+    deleteButton.style.visibility = 'hidden';
 };
 createButton.addEventListener('click', createPopupButton); 
 
