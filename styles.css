@@ -197,7 +197,7 @@ html {
   color: #6d49f6;
 }
 .popup__color-scheme {
-  margin-left: 400px;
+  padding-left: 10px;
 }
 .popup__color-scheme_label-text {
   color: #70757a;
