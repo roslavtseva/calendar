@@ -2,7 +2,7 @@ import { createDaysOfWeek } from './render-week.js';
 import { renderCalendar } from './render-calendar.js';
 import { displayEvents } from './displaying-events.js';
 import { events } from './storage.js';
-import { createPopup } from './create-popup.js';
+// import { createPopup } from './create-popup.js';
 
 
 export { currentWeek,

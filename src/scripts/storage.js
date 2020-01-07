@@ -89,4 +89,13 @@ export const events = [
         id: 40768,
         description: 'Order from restaurant',
     },
+    {
+        title: 'Eat pizza2',
+        dateFrom: new Date('2020', '00', '06', '10', '30'),
+        dateTo: new Date('2020', '00', '06', '11', '15'),
+        // timeFrom: '12:30',
+        // timeTo: '16:45',
+        id: 4076238,
+        description: 'Order from home',
+    },
 ];

@@ -3,10 +3,6 @@ import { createPopup } from './create-popup.js';
 
 export { displayEvents };
 
-
-// const weekBar = document.querySelector('.calendar__week-bar');
-// weekBar.addEventListener('click', createPopup); 
-
 function displayEvents(events) {
     
     return events.map(event => {

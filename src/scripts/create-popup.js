@@ -3,11 +3,13 @@ import {events} from './storage.js';
 
 export { 
     // weekBar,
+    popup,
     popupForm,
     saveButton,
     closePopup,
     createPopup,
     createPopupButton,
+    formFieldPopUp
 };
 
 const popup = document.querySelector('.popup-modal');
@@ -46,6 +48,9 @@ function createPopup(event) {
     if (event.target.dataset.hour > 9 ){
         formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
         formFieldPopUp.timeTo.value = `${+event.target.dataset.hour + 1}:00`;
+    } else if (event.target.dataset.hour == 9) {
+        formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
+        formFieldPopUp.timeTo.value = `${+event.target.dataset.hour + 1}:00`;
     } else {
         formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
         formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
@@ -66,6 +71,9 @@ function createPopupButton() {
     if (date.getHours() > 9 ){
         formFieldPopUp.timeFrom.value = `${date.getHours()}:00`;
         formFieldPopUp.timeTo.value = `${date.getHours() + 1}:00`;
+    } else if (date.getHours() == 9) {
+        formFieldPopUp.timeFrom.value = `0${date.getHours()}:00`;
+        formFieldPopUp.timeTo.value = `${date.getHours() + 1}:00`;
     } else {
         formFieldPopUp.timeFrom.value = `0${date.getHours()}:00`;
         formFieldPopUp.timeTo.value = `0${date.getHours() + 1}:00`;
@@ -76,7 +84,7 @@ function createPopupButton() {
 createButton.addEventListener('click', createPopupButton); 
 
 
-function closePopup(event) {
+function closePopup() {
     const currentPopupTitle = document.querySelector('.popup__header_title-input');
     currentPopupTitle.value= '';
 

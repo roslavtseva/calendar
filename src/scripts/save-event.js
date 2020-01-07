@@ -1,14 +1,13 @@
 import { events } from './storage.js';
 import { displayEvents } from './displaying-events.js';
-import { popupForm, saveButton, closePopup } from './create-popup.js';
+import { popupForm, closePopup } from './create-popup.js';
 
 export { saveNewEvent };
-export {  };
 
 function saveNewEvent(event) {
     event.preventDefault();
     const formData = [...new FormData(popupForm)];
-
+    // console.log(formData);
     const newEvent = formData.reduce((acc, item) => {
         acc[item[0]] = item[1];
         return acc;
@@ -28,5 +27,8 @@ function saveNewEvent(event) {
     events.push(newEvent);
     displayEvents(events);
     closePopup();
+    console.log(events);
     return;
 }
+
+popupForm.addEventListener('submit', saveNewEvent);
