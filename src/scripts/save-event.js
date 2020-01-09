@@ -1,13 +1,14 @@
 import { events } from './storage.js';
-import { displayEvents } from './displaying-events.js';
+import { displayEvents, renderNewEvents } from './displaying-events.js';
 import { popupForm, closePopup } from './create-popup.js';
+import { switcher } from './edit-event.js';
 
 export { saveNewEvent };
 
-function saveNewEvent(event) {
+const saveNewEvent = event => {
     event.preventDefault();
     const formData = [...new FormData(popupForm)];
-    // console.log(formData);
+    console.log(formData);
     const newEvent = formData.reduce((acc, item) => {
         acc[item[0]] = item[1];
         return acc;
@@ -19,16 +20,17 @@ function saveNewEvent(event) {
     newEvent.dateTo = new Date(new Date(newEvent.dateTo).setHours(+timeTo[0], +timeTo[1]));
 
     newEvent.id = Math.floor(Math.random() * 1000);
-
+    
     if (newEvent.title == '') {
         newEvent.title = 'No Title';
     }
 
     events.push(newEvent);
+    renderNewEvents(events);
     displayEvents(events);
     closePopup();
-    console.log(events);
     return;
 }
 
 popupForm.addEventListener('submit', saveNewEvent);
+// popupForm.removeEventListener('submit', saveNewEvent);

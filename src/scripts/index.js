@@ -3,8 +3,10 @@ import { renderCalendar } from './render-calendar.js';
 import { renderSidebar } from './sidebar.js';
 import { displayCurrentWeek, switchWeekForward } from './display-current-week.js';
 import { closePopup, createPopup } from './create-popup.js';
-import { displayEvents } from './displaying-events.js';
-import { deleteEvent } from './delete-event.js';
+import { displayEvents, renderNewEvents } from './displaying-events.js';
 // import { durationValidation } from './validating-form.js';
+import { editEventHandler, switcher, editObjEvent, renderCorrectPopup } from './edit-event.js';
 import { saveNewEvent } from './save-event.js';
-import { editEventHandler } from './edit-event.js';
+import { deleteEvent } from './delete-event.js';
+
+
