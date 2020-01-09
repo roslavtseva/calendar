@@ -1,8 +1,11 @@
 import { events } from './storage.js';
+import { createPopup } from './create-popup.js';
 
-export { displayEvents };
+export { displayEvents,
+    renderNewEvents,
+ };
 
-function displayEvents(events) {
+function displayEvents(events) {  // display already splitted and generated new array
     
     return events.map(event => {
         const eventDiv = document.createElement('div');
@@ -34,6 +37,10 @@ function displayEvents(events) {
 
         const divMargin = dateFrom.getMinutes();
         eventDiv.style.marginTop = `${divMargin}px`;
+
+
+        const weekBar = document.querySelector('.calendar__week-bar');
+        weekBar.addEventListener('click', createPopup);
     });
 }
 
@@ -68,7 +75,7 @@ function createNewEventObjects(event) {
     events.push(firstObjectEvent, secondObjectEvent);
 };
 
-function renderNewSplitedEvents(events) {
+function renderNewSplitedEvents(events) {   // create new array of events after splitting into 2 obj
     events.forEach((event, index) => {
 
         if (event.dateFrom.getDate() !== event.dateTo.getDate()) {
@@ -77,7 +84,7 @@ function renderNewSplitedEvents(events) {
         }
     });
 };
-renderNewSplitedEvents(events);
+renderNewSplitedEvents(events);  // invoke first
 
 function renderNewEvents(events) {
     return renderNewSplitedEvents(events); 

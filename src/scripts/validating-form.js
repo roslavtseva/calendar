@@ -3,7 +3,7 @@ import { popupForm, saveButton, closePopup } from './create-popup.js';
 import { saveNewEvent } from './save-event.js';
 
 
-export { durationValidation };
+// export { durationValidation };
 
 function durationValidation(event) {
     event.preventDefault();
@@ -19,10 +19,12 @@ function durationValidation(event) {
         saveNewEvent(event);
     }
 }
-popupForm.addEventListener('submit', durationValidation);
+// popupForm.addEventListener('submit', durationValidation);
 
 
 function validationBeforeEventStarts(event) {
+    event.preventDefault();
+
     const currentDate = new Date();
 
     const formData = new FormData(popupForm);
