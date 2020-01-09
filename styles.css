@@ -332,4 +332,27 @@ html {
   overflow: hidden;
 }
 
+.redline {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 10px;
+  z-index: 2;
+}
+
+.line {
+  position: relative;
+  background-color: #6d49f6;
+  height: 2px;
+  width: 117.11px;
+}
+
+.dot {
+  position: relative;
+  border-radius: 100%;
+  background-color: #6d49f6;
+  height: 8px;
+  width: 8px;
+}
+
 /*# sourceMappingURL=styles.css.map */
