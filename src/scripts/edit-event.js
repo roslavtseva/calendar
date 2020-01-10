@@ -3,11 +3,12 @@ import { events } from './storage.js';
 import { displayCurrentWeek, currentWeek } from './display-current-week.js';
 import { deleteEvent } from './delete-event.js';
 import { saveNewEvent } from './save-event.js';
+import { renderNewEvents, displayEvents } from './displaying-events.js';
+import { renderCalendar } from './render-calendar.js';
 
 export {
     editEventHandler,
     weekBar,
-    switcher,
     renderCorrectPopup,
     editObjEvent,
 }
@@ -23,10 +24,12 @@ function editEventHandler(event) {
     const child = event.target;
     const targetBarElem = child.parentNode;
 
-    const clickedObjEvent = events.find(event => 
-        new Date(targetBarElem.dataset.date).toDateString() == event.dateFrom.toDateString() &&
-        targetBarElem.dataset.hour == event.dateFrom.getHours()
+    const clickedObjEvent = newEvents.find(event => {
+        return new Date(targetBarElem.dataset.date).toDateString() == event.dateFrom.toDateString() &&
+        targetBarElem.dataset.hour == event.dateFrom.getHours();
+    }
     );
+    // console.log(clickedObjEvent);
 
     event.stopPropagation();
     return renderCorrectPopup(clickedObjEvent);
@@ -34,7 +37,16 @@ function editEventHandler(event) {
 
 
 function renderCorrectPopup(obj) {
-    formFieldPopUp.title.value = `${obj.title}`;
+    // const objId = obj.id;
+    // console.log(objId);
+
+    // let targetEventObj = events.find(event => {
+    //     console.log(event.id);
+    //     objId == event.id;
+    // } );
+    console.log('Hello from Edit Render');
+    
+    formFieldPopUp.title.value = obj.title;
     formFieldPopUp.dateFrom.value = obj.dateFrom.toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = obj.dateTo.toLocaleDateString().split('.').reverse().join('-');
 
@@ -51,19 +63,18 @@ function renderCorrectPopup(obj) {
 }
 
 function switcher() {
-    saveButton.removeEventListener('submit', saveNewEvent);
-    saveButton.addEventListener('submit', editObjEvent);
+    popupForm.removeEventListener('submit', saveNewEvent);
+    popupForm.addEventListener('submit', editObjEvent);
 }
-
-
 
 function editObjEvent(event) {
 
-    console.log('LOL');
+    console.log('Hello from Edit Obj Event');
 
     const formData = [...new FormData(popupForm)];
     const clickEventId = new FormData(popupForm).get('id');
-    console.log(clickEventId);
+    // console.log(clickEventId);
+
     const newEvent = formData.reduce((acc, item) => {
         acc[item[0]] = item[1];
         return acc;
@@ -81,27 +92,28 @@ function editObjEvent(event) {
         
         return event;
     });
-
     events.push(newEvent);
 
-    // deleteEvent(obj);
-
-    // console.log(newEventsArray);
     console.log(events);
-
 
     event.preventDefault();
     displayCurrentWeek(currentWeek);
-    renderNewEvents(events);
+    renderNewEvents();
     displayEvents(events);
     closePopup();
+    popupForm.addEventListener('submit', saveNewEvent);
+    // popupForm.removeEventListener('submit', editObjEvent);
     return;
 }
 
-// saveButton.removeEventListener('submit', saveNewEvent);
+
+// function edit(obj) {
+
+// }
+
+
+// popupForm.removeEventListener('submit', saveNewEvent);
 // popupForm.addEventListener('submit', editObjEvent);
-
-
 
 
 // function editExistedEvent(event) {

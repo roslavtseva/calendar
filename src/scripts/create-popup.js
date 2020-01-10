@@ -43,6 +43,7 @@ const formFieldPopUp = {
 
 
 function createPopup(event) {
+    closePopup();
     formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     if (event.target.dataset.hour == 23) {

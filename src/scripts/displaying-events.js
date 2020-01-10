@@ -5,9 +5,21 @@ export { displayEvents,
     renderNewEvents,
  };
 
+
+function newEventsWrapper(events) {
+    const newEvents = [...events];
+    return newEvents;
+}
+const newEvents = newEventsWrapper(events);
+console.log(newEvents);
+console.log(events);
+
+
+
 function displayEvents(events) {  // display already splitted and generated new array
-    
-    return events.map(event => {
+    // const newEvents = [...events];
+
+    return newEvents.map(event => {
         const eventDiv = document.createElement('div');
         eventDiv.classList.add('day-event');
 
@@ -17,9 +29,9 @@ function displayEvents(events) {  // display already splitted and generated new 
         const description = event.description;
 
         eventDiv.innerHTML = `${title}<br>
-            ${dateFrom.getHours()}:${dateFrom.getMinutes()} - 
-            ${dateTo.getHours()}:${dateTo.getMinutes()}<br>
-            ${description}`;
+        ${dateFrom.getHours()}:${dateFrom.getMinutes()} - 
+        ${dateTo.getHours()}:${dateTo.getMinutes()}<br>
+        ${description}`;
 
         const allHours =  document.querySelectorAll('.calendar__hour-bar');
         let hourBar = [...allHours].find(event => {
@@ -41,6 +53,9 @@ function displayEvents(events) {  // display already splitted and generated new 
 
         const weekBar = document.querySelector('.calendar__week-bar');
         weekBar.addEventListener('click', createPopup);
+
+        console.log('LOL');
+        // console.log(newEvents);
     });
 }
 
@@ -61,6 +76,7 @@ function createNewEventObjects(event) {
         dateFrom: event.dateFrom,
         dateTo: firstToFullDate,
         description: event.description,
+        colorChooser: '',
         id: id,
     };
 
@@ -69,24 +85,27 @@ function createNewEventObjects(event) {
         dateFrom: secondFromFullDate,
         dateTo: event.dateTo,
         description: event.description,
+        colorChooser: '',
         id: id,
     };
 
-    events.push(firstObjectEvent, secondObjectEvent);
+    newEvents.push(firstObjectEvent, secondObjectEvent);
 };
 
 function renderNewSplitedEvents(events) {   // create new array of events after splitting into 2 obj
-    events.forEach((event, index) => {
+    // const newEvents = [...events];
+
+    newEvents.forEach((event, index) => {
 
         if (event.dateFrom.getDate() !== event.dateTo.getDate()) {
-            events.splice(index, 1);
+            newEvents.splice(index, 1);
             createNewEventObjects(event); 
         }
     });
 };
 renderNewSplitedEvents(events);  // invoke first
 
-function renderNewEvents(events) {
+function renderNewEvents() {
     return renderNewSplitedEvents(events); 
 };
-renderNewEvents(events);
+renderNewEvents();
