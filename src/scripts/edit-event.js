@@ -1,4 +1,4 @@
-import { formFieldPopUp, popup, popupForm, deleteButton, saveButton, closePopup, createPopup } from './create-popup.js';
+import { formFieldPopUp, popup, popupForm, saveButton, closePopup, createPopup } from './create-popup.js';
 import { events } from './storage.js';
 import { displayCurrentWeek, currentWeek } from './display-current-week.js';
 import { deleteEvent } from './delete-event.js';
@@ -16,6 +16,7 @@ const weekBar = document.querySelector('.calendar__week-bar');
 weekBar.addEventListener('click', createPopup);
 weekBar.addEventListener('click', editEventHandler, true);
 
+const deleteButton = document.querySelector('.popup__action_delete');
 
 function editEventHandler(event) {
     if (!event.target.classList.contains('day-event')) return;
@@ -34,6 +35,8 @@ function editEventHandler(event) {
 
 
 function renderCorrectPopup(obj) {
+    const handlerDeleteEvent = deleteButton.addEventListener('click', deleteEvent(obj));
+    
     formFieldPopUp.title.value = `${obj.title}`;
     formFieldPopUp.dateFrom.value = obj.dateFrom.toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = obj.dateTo.toLocaleDateString().split('.').reverse().join('-');
@@ -47,6 +50,7 @@ function renderCorrectPopup(obj) {
     deleteButton.style.visibility = 'visible';
     popup.style.display = 'block';
 
+    
     // switcher();
 }
 

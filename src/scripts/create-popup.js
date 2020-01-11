@@ -43,6 +43,7 @@ const formFieldPopUp = {
 
 
 function createPopup(event) {
+
     formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     if (event.target.dataset.hour == 23) {
@@ -61,9 +62,8 @@ function createPopup(event) {
     popup.style.display = 'block';
     deleteButton.style.visibility = 'hidden';
 
+    deleteButton.dataset.id = event.target.dataset.id;
 };
-// weekBar.addEventListener('click', createPopup);
-
 
 
 function createPopupButton() {

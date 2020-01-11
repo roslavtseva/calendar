@@ -8,12 +8,15 @@ const deleteBtn = document.querySelector('.popup__action_delete');
 // const handlerDeleteEvent = deleteBtn.addEventListener('click', deleteEvent);
 
 function deleteEvent(objEvent) {
-    
     for (let i = 0; i < events.length; i++) {
-        if (objEvent.id == events[i].id) {
+        if (objEvent.id === events[i].id) {
             events.splice(i, 1);
+            console.log('deleteddd');
         }
+        popupModal.style.display = 'none';
     }
+    
+    console.log(events);
     return events;
 }
 

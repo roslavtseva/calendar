@@ -1,10 +1,12 @@
 import { renderCalendar } from "./render-calendar.js";
 
+
+const redLine = document.querySelector(".redline");
+
 const currentHourBar = displayRedLineOnCurrentHourBar();
 
 export function renderRedLine() {
-  const redLine = document.querySelector(".redline");
-  redLine.classList.add("redline");
+  // redLine.classList.add("redline");
 
   const dot = document.createElement("div");
   dot.classList.add("dot");
@@ -16,6 +18,7 @@ export function renderRedLine() {
   redLine.append(line);
 
   currentHourBar.append(redLine);
+  
 }
 
 renderRedLine();
@@ -28,11 +31,13 @@ function displayRedLineOnCurrentHourBar() {
   const currentHour = currentDate.getHours();
   const currentMinute = currentDate.getMinutes()
 
-  let positionInsideHourBar = (hourContainer.height / 60) * currentMinute;
+  let positionInsideHourBar = currentMinute - 4;
 
+  redLine.style.marginTop = positionInsideHourBar + 'px';
 
   return [...hourContainer].find(
-    el => el.dataset.day == currentDay && el.dataset.hour == currentHour
+    el => el.dataset.day == currentDay && el.dataset.hour == currentHour//&& positionInsideHourBar
   );
 }
+
 displayRedLineOnCurrentHourBar();
