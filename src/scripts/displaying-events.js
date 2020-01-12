@@ -1,27 +1,61 @@
 import { events } from './storage.js';
 import { createPopup } from './create-popup.js';
 
-export { displayEvents,
-    renderNewEvents,
- };
+export {
+    renderEvents,
+    mapEvents,
+};
 
 
-function newEventsWrapper(events) {
-    const newEvents = [...events];
+function mapEvents() {
+    const newEvents = [];
+    events.forEach(event => {
+
+        if (event.dateFrom.getDate() !== event.dateTo.getDate()) {
+            const firstToYear = new Date(event.dateFrom).getFullYear();
+            const firstToMonth = new Date(event.dateFrom).getMonth();
+            const firstToDate = new Date(event.dateFrom).getDate();
+            const firstToFullDate = new Date(firstToYear, firstToMonth, firstToDate, 23, 59);
+
+            const secondFromYear = new Date(event.dateTo).getFullYear();
+            const secondFromMonth = new Date(event.dateTo).getMonth();
+            const secondFromDate = new Date(event.dateTo).getDate();
+            const secondFromFullDate = new Date(secondFromYear, secondFromMonth, secondFromDate);
+            const id = event.id;
+
+            const firstObjectEvent = {
+                title: event.title,
+                dateFrom: event.dateFrom,
+                dateTo: firstToFullDate,
+                description: event.description,
+                colorChooser: '',
+                id: id,
+            };
+
+            const secondObjectEvent = {
+                title: event.title,
+                dateFrom: secondFromFullDate,
+                dateTo: event.dateTo,
+                description: event.description,
+                colorChooser: '',
+                id: id,
+            };
+            newEvents.push(firstObjectEvent, secondObjectEvent);
+
+        } else {
+            newEvents.push(event);
+        }
+    });
     return newEvents;
 }
-const newEvents = newEventsWrapper(events);
-console.log(newEvents);
-console.log(events);
 
-
-
-function displayEvents(events) {  // display already splitted and generated new array
-    // const newEvents = [...events];
+function renderEvents() {  // display already splitted and generated new array
+    const newEvents = mapEvents();
 
     return newEvents.map(event => {
         const eventDiv = document.createElement('div');
         eventDiv.classList.add('day-event');
+        eventDiv.setAttribute('data-id', event.id);
 
         const title = event.title;
         const dateFrom = event.dateFrom;
@@ -33,10 +67,10 @@ function displayEvents(events) {  // display already splitted and generated new 
         ${dateTo.getHours()}:${dateTo.getMinutes()}<br>
         ${description}`;
 
-        const allHours =  document.querySelectorAll('.calendar__hour-bar');
+        const allHours = document.querySelectorAll('.calendar__hour-bar');
         let hourBar = [...allHours].find(event => {
-                let id = `${dateFrom.getDay()}${dateFrom.getHours()}`;
-                return event.dataset.id == id;
+            let id = `${dateFrom.getDay()}${dateFrom.getHours()}`;
+            return event.dataset.id == id;
         });
 
         let dateOfbar = new Date(hourBar.dataset.date).getDate();
@@ -53,59 +87,5 @@ function displayEvents(events) {  // display already splitted and generated new 
 
         const weekBar = document.querySelector('.calendar__week-bar');
         weekBar.addEventListener('click', createPopup);
-
-        console.log('LOL');
-        // console.log(newEvents);
     });
 }
-
-function createNewEventObjects(event) {
-    const firstToYear = new Date(event.dateFrom).getFullYear();
-    const firstToMonth = new Date(event.dateFrom).getMonth();
-    const firstToDate = new Date(event.dateFrom).getDate();
-    const firstToFullDate = new Date(firstToYear, firstToMonth, firstToDate, 23, 59);
-    
-    const secondFromYear = new Date(event.dateTo).getFullYear();
-    const secondFromMonth = new Date(event.dateTo).getMonth();
-    const secondFromDate = new Date(event.dateTo).getDate();
-    const secondFromFullDate = new Date(secondFromYear, secondFromMonth, secondFromDate);
-    const id = Math.floor(Math.random() * 1000);
-
-    const firstObjectEvent = {
-        title: event.title,
-        dateFrom: event.dateFrom,
-        dateTo: firstToFullDate,
-        description: event.description,
-        colorChooser: '',
-        id: id,
-    };
-
-    const secondObjectEvent = {
-        title: event.title,
-        dateFrom: secondFromFullDate,
-        dateTo: event.dateTo,
-        description: event.description,
-        colorChooser: '',
-        id: id,
-    };
-
-    newEvents.push(firstObjectEvent, secondObjectEvent);
-};
-
-function renderNewSplitedEvents(events) {   // create new array of events after splitting into 2 obj
-    // const newEvents = [...events];
-
-    newEvents.forEach((event, index) => {
-
-        if (event.dateFrom.getDate() !== event.dateTo.getDate()) {
-            newEvents.splice(index, 1);
-            createNewEventObjects(event); 
-        }
-    });
-};
-renderNewSplitedEvents(events);  // invoke first
-
-function renderNewEvents() {
-    return renderNewSplitedEvents(events); 
-};
-renderNewEvents();

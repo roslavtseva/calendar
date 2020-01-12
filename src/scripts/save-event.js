@@ -1,5 +1,5 @@
 import { events } from './storage.js';
-import { displayEvents, renderNewEvents } from './displaying-events.js';
+import { renderEvents, mapEvents } from './displaying-events.js';
 import { popupForm, closePopup } from './create-popup.js';
 
 export { saveNewEvent };
@@ -25,11 +25,9 @@ const saveNewEvent = event => {
     }
 
     events.push(newEvent);
-    displayEvents(events);
-    renderNewEvents();
+    renderEvents();
     closePopup();
-    console.log(events);
-    return ;
+    // console.log(events);
 }
 
 popupForm.addEventListener('submit', saveNewEvent);

@@ -3,8 +3,9 @@ import { events } from './storage.js';
 import { displayCurrentWeek, currentWeek } from './display-current-week.js';
 import { deleteEvent } from './delete-event.js';
 import { saveNewEvent } from './save-event.js';
-import { renderNewEvents, displayEvents } from './displaying-events.js';
+import { renderEvents, mapEvents } from './displaying-events.js';
 import { renderCalendar } from './render-calendar.js';
+// import { renderCalendar } from './render-calendar.js';
 
 export {
     editEventHandler,
@@ -21,31 +22,21 @@ weekBar.addEventListener('click', editEventHandler, true);
 function editEventHandler(event) {
     if (!event.target.classList.contains('day-event')) return;
 
-    const child = event.target;
-    const targetBarElem = child.parentNode;
+    const targetEventId = event.target.getAttribute('data-id');
+    const allEventsOnPage = weekBar.querySelectorAll('.day-event');
+    console.log(targetEventId);
 
-    const clickedObjEvent = newEvents.find(event => {
-        return new Date(targetBarElem.dataset.date).toDateString() == event.dateFrom.toDateString() &&
-        targetBarElem.dataset.hour == event.dateFrom.getHours();
-    }
-    );
-    // console.log(clickedObjEvent);
+    const clickedObjEvent = events.find(event => {        
+        return targetEventId == event.id;
+    });
 
     event.stopPropagation();
-    return renderCorrectPopup(clickedObjEvent);
+    renderCorrectPopup(clickedObjEvent);
 }
 
 
 function renderCorrectPopup(obj) {
-    // const objId = obj.id;
-    // console.log(objId);
 
-    // let targetEventObj = events.find(event => {
-    //     console.log(event.id);
-    //     objId == event.id;
-    // } );
-    console.log('Hello from Edit Render');
-    
     formFieldPopUp.title.value = obj.title;
     formFieldPopUp.dateFrom.value = obj.dateFrom.toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = obj.dateTo.toLocaleDateString().split('.').reverse().join('-');
@@ -59,7 +50,7 @@ function renderCorrectPopup(obj) {
     deleteButton.style.visibility = 'visible';
     popup.style.display = 'block';
 
-    // switcher();
+    switcher();
 }
 
 function switcher() {
@@ -69,7 +60,7 @@ function switcher() {
 
 function editObjEvent(event) {
 
-    console.log('Hello from Edit Obj Event');
+    // console.log('Hello from Edit Obj Event');
 
     const formData = [...new FormData(popupForm)];
     const clickEventId = new FormData(popupForm).get('id');
@@ -89,21 +80,18 @@ function editObjEvent(event) {
         if (clickEventId == event.id) {
             events.splice(index, 1);
         }
-        
         return event;
     });
     events.push(newEvent);
 
-    console.log(events);
+    // console.log(events);
 
     event.preventDefault();
-    displayCurrentWeek(currentWeek);
-    renderNewEvents();
-    displayEvents(events);
+    // displayCurrentWeek(currentWeek);
+    renderEvents();
     closePopup();
     popupForm.addEventListener('submit', saveNewEvent);
     // popupForm.removeEventListener('submit', editObjEvent);
-    return;
 }
 
 
