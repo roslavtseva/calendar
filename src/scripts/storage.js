@@ -55,8 +55,8 @@ export const events = [
     // },
     // {
     //     title: 'Watch A.I. programm',
-    //     dateFrom: new Date('2020', '0', '8', '22', '45'),
-    //     dateTo: new Date('2020', '0', '9', '01', '30'),
+    //     dateFrom: new Date('2020', '0', '8', '02', '45'),
+    //     dateTo: new Date('2020', '0', '8', '03', '30'),
     //     // timeFrom: '18:00',
     //     // timeTo: '02:45',
     //     id: 124,
@@ -73,12 +73,12 @@ export const events = [
     // },
     // {
     //     title: 'Play games',
-    //     dateFrom: new Date('2020', '0', '07', '23', '15'),
-    //     dateTo: new Date('2020', '0', '08', '01', '15'),
+    //     dateFrom: new Date('2020', '0', '07', '21', '15'),
+    //     dateTo: new Date('2020', '0', '07', '23', '15'),
     //     // timeFrom: '19:00',
     //     // timeTo: '03:15',
     //     id: 12456,
-    //     description: 'Happy N.Y!!!!',
+    //     description: '!!!!',
     // },
     // {
     //     title: 'Eat pizza',
@@ -96,6 +96,6 @@ export const events = [
     //     // timeFrom: '12:30',
     //     // timeTo: '16:45',
     //     id: 4076238,
-    //     description: 'Order from home',
+    //     description: 'Home made',
     // },
 ];
