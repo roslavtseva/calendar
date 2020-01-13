@@ -1,23 +1,31 @@
 import { events } from './storage.js';
+import { renderEvents } from './displaying-events.js';
+import { editEventHandler } from './edit-event.js';
 
 export { deleteEvent };
 
+//const event = document.querySelector('.day-event');
 const popupModal = document.querySelector('.popup-modal');
 const deleteBtn = document.querySelector('.popup__action_delete');
 
-// const handlerDeleteEvent = deleteBtn.addEventListener('click', deleteEvent);
+const handlerDeleteEvent = deleteBtn.addEventListener('click', deleteEvent);
 
-function deleteEvent(objEvent) {
+
+
+function deleteEvent(obj) {
+
+
     for (let i = 0; i < events.length; i++) {
-        if (objEvent.id === events[i].id) {
+
+
+        if (obj.id === events[i].id) {
             events.splice(i, 1);
-            console.log('deleteddd');
+
+            renderEvents();
         }
         popupModal.style.display = 'none';
     }
-    
-    console.log(events);
-    return events;
-}
 
-// console.log(deleteEvent(events, 400));
+    console.log(events);
+};
+
