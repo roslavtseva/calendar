@@ -309,7 +309,7 @@ html {
   width: 100%;
 }
 .calendar__hour-bar {
-  background-color: #e2fbfc;
+  background-color: #EFF7F9;
   width: 100%;
   height: 60px;
   border-bottom: 1px solid #d5d5d5;
@@ -317,7 +317,7 @@ html {
   position: relative;
 }
 .calendar__hour-bar:hover {
-  background-color: #c4e9fb;
+  background-color: #E1F2F7;
 }
 
 .day-event {
@@ -343,7 +343,7 @@ html {
 
 .line {
   position: relative;
-  background-color: #6d49f6;
+  background-color: #00D4CD;
   height: 2px;
   width: 117.11px;
 }
@@ -351,7 +351,7 @@ html {
 .dot {
   position: relative;
   border-radius: 100%;
-  background-color: #6d49f6;
+  background-color: #00D4CD;
   height: 8px;
   width: 8px;
 }
