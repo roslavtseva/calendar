@@ -6,7 +6,6 @@ const redLine = document.querySelector(".redline");
 const currentHourBar = displayRedLineOnCurrentHourBar();
 
 export function renderRedLine() {
-  // redLine.classList.add("redline");
 
   const dot = document.createElement("div");
   dot.classList.add("dot");

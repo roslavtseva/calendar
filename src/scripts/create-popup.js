@@ -95,23 +95,3 @@ function closePopup() {
     popup.style.display = 'none';
 }
 buttonClose.addEventListener('click', closePopup); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
