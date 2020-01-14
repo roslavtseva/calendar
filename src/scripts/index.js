@@ -8,5 +8,7 @@ import { renderEvents, mapEvents } from './displaying-events.js';
 import { editEventHandler, editObjEvent, renderCorrectPopup } from './edit-event.js';
 import { saveNewEvent } from './save-event.js';
 import { deleteEvent } from './delete-event.js';
+import { durationValidation } from './validating-form.js';
+import { renderRedLine } from './redline.js';
 
 

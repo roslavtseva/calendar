@@ -12,7 +12,7 @@ function createDaysOfWeek(week){
     daysContainer.append(gmtBlock);
 
     for (let i = 0; i < week.length; i++){
-        const oneDay = document.createElement('div');
+     const oneDay = document.createElement('div');
         oneDay.classList.add('day');
         
         const dayName = document.createElement('span');

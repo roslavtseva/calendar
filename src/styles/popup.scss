@@ -10,7 +10,7 @@
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.75);
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 180px;
     left: 100px;
     display: none;
@@ -51,7 +51,8 @@
     }
 
     &__color-scheme{
-        margin-left: 400px;
+        padding-left: 10px;
+
     }
     &__color-scheme_label-text{
         color: $text-grey;
