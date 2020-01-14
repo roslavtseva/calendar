@@ -1,6 +1,7 @@
 import { events } from './storage.js';
 import { createPopup } from './create-popup.js';
 
+
 export {
     renderEvents,
     mapEvents,
@@ -51,6 +52,15 @@ function mapEvents() {
 
 function renderEvents() {  // display already splitted and generated new array
     const newEvents = mapEvents();
+
+    const bar = document.querySelectorAll('.calendar__hour-bar');
+    
+    [...bar].map(hourBar => {
+        const eventDiv = document.querySelector('.day-event');
+        if (hourBar.contains(eventDiv)){
+        eventDiv.remove();
+        }
+    });
 
     return newEvents.map(event => {
         const eventDiv = document.createElement('div');

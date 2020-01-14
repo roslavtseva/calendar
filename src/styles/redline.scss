@@ -1,0 +1,23 @@
+.redline {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 8px;
+    z-index: 2;
+    margin-top: 0px;
+}
+
+.line {
+    position: relative;
+    background-color: $light-violet;
+    height: 2px;
+    width: 117.11px;
+}
+.dot {
+    position: relative;
+    border-radius: 100%;
+    background-color: $light-violet;
+    height: 8px;
+    width: 8px;
+
+}

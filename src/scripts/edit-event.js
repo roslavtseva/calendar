@@ -1,10 +1,12 @@
-import { formFieldPopUp, popup, popupForm, deleteButton, saveButton, closePopup, createPopup } from './create-popup.js';
+import { deleteButton, formFieldPopUp, popup, popupForm, saveButton, closePopup, createPopup } from './create-popup.js';
 import { events } from './storage.js';
 import { displayCurrentWeek, currentWeek } from './display-current-week.js';
 import { deleteEvent } from './delete-event.js';
 import { saveNewEvent } from './save-event.js';
 import { renderEvents, mapEvents } from './displaying-events.js';
 import { renderCalendar } from './render-calendar.js';
+
+
 // import { renderCalendar } from './render-calendar.js';
 
 export {
@@ -18,12 +20,13 @@ const weekBar = document.querySelector('.calendar__week-bar');
 weekBar.addEventListener('click', createPopup);
 weekBar.addEventListener('click', editEventHandler, true);
 
+//const deleteButton = document.querySelector('.popup__action_delete');
 
 function editEventHandler(event) {
     if (!event.target.classList.contains('day-event')) return;
 
     const targetEventId = event.target.getAttribute('data-id');
-    const allEventsOnPage = weekBar.querySelectorAll('.day-event');
+  //  const allEventsOnPage = weekBar.querySelectorAll('.day-event');
     console.log(targetEventId);
 
     const clickedObjEvent = events.find(event => {        
@@ -32,10 +35,14 @@ function editEventHandler(event) {
 
     event.stopPropagation();
     renderCorrectPopup(clickedObjEvent);
+
+
 }
 
 
 function renderCorrectPopup(obj) {
+
+    
 
     formFieldPopUp.title.value = obj.title;
     formFieldPopUp.dateFrom.value = obj.dateFrom.toLocaleDateString().split('.').reverse().join('-');
@@ -50,7 +57,11 @@ function renderCorrectPopup(obj) {
     deleteButton.style.visibility = 'visible';
     popup.style.display = 'block';
 
+    const handlerDeleteEvent = deleteButton.addEventListener('click', deleteEvent.bind(deleteButton, obj));
+
     switcher();
+
+
 }
 
 function switcher() {
@@ -87,7 +98,7 @@ function editObjEvent(event) {
     // console.log(events);
 
     event.preventDefault();
-    // displayCurrentWeek(currentWeek);
+    displayCurrentWeek(currentWeek);
     renderEvents();
     closePopup();
     popupForm.addEventListener('submit', saveNewEvent);

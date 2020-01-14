@@ -62,9 +62,8 @@ function createPopup(event) {
     popup.style.display = 'block';
     deleteButton.style.visibility = 'hidden';
 
+    deleteButton.dataset.id = event.target.dataset.id;
 };
-// weekBar.addEventListener('click', createPopup);
-
 
 
 function createPopupButton() {
