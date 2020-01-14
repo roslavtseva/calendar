@@ -1,11 +1,13 @@
-import { events } from './storage.js';
-import { renderEvents, mapEvents } from './displaying-events.js';
+import { setItemToStorage, getItemFromStorage } from './storage.js';
+import { renderEvents } from './displaying-events.js';
 import { popupForm, closePopup } from './create-popup.js';
 
 export { saveNewEvent };
 
 const saveNewEvent = event => {
     event.preventDefault();
+    const events = getItemFromStorage('events') || [];
+
     const formData = [...new FormData(popupForm)];
     // console.log(formData);
     const newEvent = formData.reduce((acc, item) => {
@@ -25,10 +27,9 @@ const saveNewEvent = event => {
     }
 
     events.push(newEvent);
+    setItemToStorage('events', events);
     renderEvents();
     closePopup();
-    // console.log(events);
 }
 
 popupForm.addEventListener('submit', saveNewEvent);
-// popupForm.removeEventListener('submit', saveNewEvent);

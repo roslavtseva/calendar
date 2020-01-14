@@ -1,4 +1,4 @@
-import { events } from './storage.js';
+import { setItemToStorage, getItemFromStorage } from './storage.js';
 import { createPopup } from './create-popup.js';
 
 export {
@@ -8,10 +8,14 @@ export {
 
 
 function mapEvents() {
+    const events = getItemFromStorage('events') || [];
+    console.log(events);
+
     const newEvents = [];
+    
     events.forEach(event => {
 
-        if (event.dateFrom.getDate() !== event.dateTo.getDate()) {
+        if (new Date(event.dateFrom).getDate() !== new Date(event.dateTo).getDate()) {
             const firstToYear = new Date(event.dateFrom).getFullYear();
             const firstToMonth = new Date(event.dateFrom).getMonth();
             const firstToDate = new Date(event.dateFrom).getDate();
@@ -46,6 +50,7 @@ function mapEvents() {
             newEvents.push(event);
         }
     });
+    setItemToStorage('events', newEvents);
     return newEvents;
 }
 
@@ -61,27 +66,27 @@ function renderEvents() {  // display already splitted and generated new array
         const dateFrom = event.dateFrom;
         const dateTo = event.dateTo;
         const description = event.description;
-
+        
         eventDiv.innerHTML = `${title}<br>
-        ${dateFrom.getHours()}:${dateFrom.getMinutes()} - 
-        ${dateTo.getHours()}:${dateTo.getMinutes()}<br>
+        ${new Date(dateFrom).getHours()}:${new Date(dateFrom).getMinutes()} - 
+        ${new Date(dateTo).getHours()}:${new Date(dateTo).getMinutes()}<br>
         ${description}`;
 
         const allHours = document.querySelectorAll('.calendar__hour-bar');
         let hourBar = [...allHours].find(event => {
-            let id = `${dateFrom.getDay()}${dateFrom.getHours()}`;
+            let id = `${new Date(dateFrom).getDay()}${new Date(dateFrom).getHours()}`;
             return event.dataset.id == id;
         });
 
         let dateOfbar = new Date(hourBar.dataset.date).getDate();
-        if (dateOfbar == dateFrom.getDate()) {
+        if (dateOfbar == new Date(dateFrom).getDate()) {
             hourBar.append(eventDiv);
         }
 
-        const divSize = (dateTo - dateFrom) / 1000 / 60;
+        const divSize = (new Date(dateTo) - new Date(dateFrom)) / 1000 / 60;
         eventDiv.style.height = `${divSize}px`;
 
-        const divMargin = dateFrom.getMinutes();
+        const divMargin = new Date(dateFrom).getMinutes();
         eventDiv.style.marginTop = `${divMargin}px`;
 
 
