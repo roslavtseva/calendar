@@ -1,9 +1,9 @@
 import { deleteButton, formFieldPopUp, popup, popupForm, saveButton, closePopup, createPopup } from './create-popup.js';
 import { setItemToStorage, getItemFromStorage } from './storage.js';
-import { displayCurrentWeek, currentWeek } from './display-current-week.js';
+import { displayCurrentWeek, currentWeek } from './render-current-week.js';
 import { deleteEvent } from './delete-event.js';
 import { saveNewEvent } from './save-event.js';
-import { renderEvents } from './displaying-events.js';
+import { renderEvents } from './render-events.js';
 
 export {
     editEventHandler,
@@ -13,11 +13,18 @@ export {
 }
 
 const weekBar = document.querySelector('.calendar__week-bar');
-weekBar.addEventListener('click', createPopup);
 weekBar.addEventListener('click', editEventHandler, true);
+weekBar.addEventListener('click', createPopup);
+
 
 function editEventHandler(event) {
-    if (!event.target.classList.contains('day-event')) return;
+    debugger;
+
+
+    if (!event.target.classList.contains('day-event')) {
+        return;
+    };
+
 
     const events = getItemFromStorage('events');
     // console.log(events);
@@ -43,6 +50,7 @@ function renderCorrectPopup(obj) {
     formFieldPopUp.timeTo.value = new Date(obj.dateTo).toLocaleTimeString();
 
     formFieldPopUp.description.value = obj.description;
+    formFieldPopUp.color.value = obj.colorChooser;
     formFieldPopUp.id.value = obj.id;
 
     deleteButton.style.visibility = 'visible';
@@ -62,6 +70,9 @@ function switcher() {
 
 function editObjEvent(event) {
 
+    console.log('hello');
+
+
     const formData = [...new FormData(popupForm)];
     const clickEventId = new FormData(popupForm).get('id');
 
@@ -71,6 +82,7 @@ function editObjEvent(event) {
         acc[item[0]] = item[1];
         return acc;
     }, {});
+    console.log(newEvent);
 
     const timeFrom = (newEvent.timeFrom).split(':');
     newEvent.dateFrom = new Date(new Date(newEvent.dateFrom).setHours(+timeFrom[0], +timeFrom[1]));
@@ -92,4 +104,7 @@ function editObjEvent(event) {
     renderEvents();
     closePopup();
     popupForm.addEventListener('submit', saveNewEvent);
+    // weekBar.addEventListener('click', editEventHandler, true);
+
+    // weekBar.addEventListener('click', createPopup);
 }

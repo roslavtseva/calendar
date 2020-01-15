@@ -1,5 +1,5 @@
 import { setItemToStorage, getItemFromStorage } from './storage.js';
-import { renderEvents } from './displaying-events.js';
+import { renderEvents } from './render-events.js';
 import { closePopup } from './create-popup.js';
 
 export { deleteEvent };

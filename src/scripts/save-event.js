@@ -1,6 +1,6 @@
 import { setItemToStorage, getItemFromStorage } from './storage.js';
-import { renderEvents } from './displaying-events.js';
-import { popupForm, closePopup } from './create-popup.js';
+import { renderEvents } from './render-events.js';
+import { popupForm, closePopup, createPopup } from './create-popup.js';
 
 export { saveNewEvent };
 
@@ -30,6 +30,10 @@ const saveNewEvent = event => {
     setItemToStorage('events', events);
     renderEvents();
     closePopup();
+
+    // const weekBar = document.querySelector('.calendar__week-bar');
+    // weekBar.addEventListener('click', createPopup);
+
 }
 
 popupForm.addEventListener('submit', saveNewEvent);

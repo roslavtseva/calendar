@@ -1,4 +1,4 @@
-import { currentWeek } from './display-current-week.js';
+import { currentWeek } from './render-current-week.js';
 
 export { renderCalendar };
  

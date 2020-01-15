@@ -1,4 +1,4 @@
-import { renderEvents } from './displaying-events.js'
+import { renderEvents } from './render-events.js'
 
 export const events = [];
 

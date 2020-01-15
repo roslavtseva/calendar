@@ -27,13 +27,14 @@ function mapEvents() {
             const secondFromDate = new Date(event.dateTo).getDate();
             const secondFromFullDate = new Date(secondFromYear, secondFromMonth, secondFromDate);
             const id = event.id;
+            const eventColor = event.colorChooser;
 
             const firstObjectEvent = {
                 title: event.title,
                 dateFrom: event.dateFrom,
                 dateTo: firstToFullDate,
                 description: event.description,
-                colorChooser: '',
+                colorChooser: eventColor,
                 id: id,
             };
 
@@ -42,7 +43,7 @@ function mapEvents() {
                 dateFrom: secondFromFullDate,
                 dateTo: event.dateTo,
                 description: event.description,
-                colorChooser: '',
+                colorChooser: eventColor,
                 id: id,
             };
             newEvents.push(firstObjectEvent, secondObjectEvent);
@@ -58,12 +59,12 @@ function mapEvents() {
 function renderEvents() {  // display already splitted and generated new array
     const newEvents = mapEvents();
 
-    const bar = document.querySelectorAll('.calendar__hour-bar');
+    const hourBar = document.querySelectorAll('.calendar__hour-bar');
     
-    [...bar].map(hourBar => {
+    [...hourBar].map(hourBar => {
         const eventDiv = document.querySelector('.day-event');
         if (hourBar.contains(eventDiv)){
-        eventDiv.remove();
+            eventDiv.remove();
         }
     });
 
@@ -83,12 +84,12 @@ function renderEvents() {  // display already splitted and generated new array
         ${description}`;
 
         const allHours = document.querySelectorAll('.calendar__hour-bar');
-        let hourBar = [...allHours].find(event => {
+        const hourBar = [...allHours].find(event => {
             let id = `${new Date(dateFrom).getDay()}${new Date(dateFrom).getHours()}`;
             return event.dataset.id == id;
         });
 
-        let dateOfbar = new Date(hourBar.dataset.date).getDate();
+        const dateOfbar = new Date(hourBar.dataset.date).getDate();
         if (dateOfbar == new Date(dateFrom).getDate()) {
             hourBar.append(eventDiv);
         }
@@ -99,8 +100,10 @@ function renderEvents() {  // display already splitted and generated new array
         const divMargin = new Date(dateFrom).getMinutes();
         eventDiv.style.marginTop = `${divMargin}px`;
 
+        eventDiv.style.background = `${event.colorChooser}`;
 
-        const weekBar = document.querySelector('.calendar__week-bar');
-        weekBar.addEventListener('click', createPopup);
+
+        // const weekBar = document.querySelector('.calendar__week-bar');
+        // weekBar.addEventListener('click', createPopup);
     });
 }

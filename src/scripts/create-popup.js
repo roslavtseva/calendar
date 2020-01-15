@@ -1,4 +1,4 @@
-import { currentWeek } from './display-current-week.js';
+import { currentWeek } from './render-current-week.js';
 // import { setItemToStorage, getItemFromStorage } from './storage.js';
 
 export {
@@ -39,7 +39,13 @@ const formFieldPopUp = {
 
 
 function createPopup(event) {
+    // debugger;
+
     closePopup();
+    console.log(event.target);
+    console.log(event.target.dataset.day);
+    console.log(currentWeek);
+    console.log(currentWeek[event.target.dataset.day]);
     formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
     if (event.target.dataset.hour == 23) {
@@ -63,6 +69,7 @@ function createPopup(event) {
 
 
 function createPopupButton() {
+
     const date = new Date();
     formFieldPopUp.dateFrom.value = date.toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = date.toLocaleDateString().split('.').reverse().join('-');
@@ -93,5 +100,8 @@ function closePopup() {
     currentPopupDescription.value= '';
 
     popup.style.display = 'none';
+
+    // const weekBar = document.querySelector('.calendar__week-bar');
+    // weekBar.addEventListener('click', createPopup);
 }
 buttonClose.addEventListener('click', closePopup); 
