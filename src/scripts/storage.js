@@ -8,15 +8,13 @@ export const events = [
     //     id: 4,
     //     description: undefined,
     // },
-    // {
-    //     title: 'Tooo long',
-    //     dateFrom: new Date('2020', '00', '01', '21', '30'),
-    //     dateTo: new Date('2020', '00', '02', '00', '45'),
-    //     // timeFrom: '12:30',
-    //     // timeTo: '16:45',
-    //     id: 401,
-    //     description: 'Having a rest',
-    // },
+    {
+        title: 'Finish lesson 26',
+        dateFrom: new Date('2020', '00', '17', '21', '30'),
+        dateTo: new Date('2020', '00', '18', '00', '45'),
+        id: 401,
+        description: 'Having a rest',
+    },
     // {
     //     title: 'Meet friends',
     //     dateFrom: new Date('2019', '11', '25', '01', '15'),

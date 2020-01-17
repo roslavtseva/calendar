@@ -43,24 +43,45 @@ const formFieldPopUp = {
 
 
 function createPopup(event) {
-    closePopup();
-    formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
-    formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
-    if (event.target.dataset.hour == 23) {
-        formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
-        formFieldPopUp.timeTo.value = `${+event.target.dataset.hour}:59`;
-    } else if (event.target.dataset.hour == 9) {
-        formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
-        formFieldPopUp.timeTo.value = `${+event.target.dataset.hour + 1}:00`;
-    } else if (event.target.dataset.hour > 9 ){
-        formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
-        formFieldPopUp.timeTo.value = `${+event.target.dataset.hour + 1}:00`;
-    }  else {
-        formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
-        formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
+    const targetEventId = event.target.getAttribute('data-id');
+
+    if(!targetEventId) { 
+        closePopup();
+        formFieldPopUp.dateFrom.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
+        formFieldPopUp.dateTo.value = currentWeek[event.target.dataset.day].toLocaleDateString().split('.').reverse().join('-');
+        if (event.target.dataset.hour == 23) {
+            formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
+            formFieldPopUp.timeTo.value = `${+event.target.dataset.hour}:59`;
+        } else if (event.target.dataset.hour == 9) {
+            formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
+            formFieldPopUp.timeTo.value = `${+event.target.dataset.hour + 1}:00`;
+        } else if (event.target.dataset.hour > 9 ){
+            formFieldPopUp.timeFrom.value = `${event.target.dataset.hour}:00`;
+            formFieldPopUp.timeTo.value = `${+event.target.dataset.hour + 1}:00`;
+        }  else {
+            formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
+            formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
+        }
+        popup.style.display = 'block';
+        deleteButton.style.visibility = 'hidden';
     }
+
+    const clickedObjEvent = events.find(event => {        
+        return targetEventId == event.id;
+    });
+
+    formFieldPopUp.title.value = clickedObjEvent.title;
+    formFieldPopUp.dateFrom.value = clickedObjEvent.dateFrom.toLocaleDateString().split('.').reverse().join('-');
+    formFieldPopUp.dateTo.value = clickedObjEvent.dateTo.toLocaleDateString().split('.').reverse().join('-');
+
+    formFieldPopUp.timeFrom.value = clickedObjEvent.dateFrom.toLocaleTimeString();
+    formFieldPopUp.timeTo.value = clickedObjEvent.dateTo.toLocaleTimeString();
+
+    formFieldPopUp.description.value = clickedObjEvent.description;
+    formFieldPopUp.id.value = clickedObjEvent.id;
+
+    deleteButton.style.visibility = 'visible';
     popup.style.display = 'block';
-    deleteButton.style.visibility = 'hidden';
 
     deleteButton.dataset.id = event.target.dataset.id;
 };

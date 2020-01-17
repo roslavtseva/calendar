@@ -2,7 +2,7 @@ import { deleteButton, formFieldPopUp, popup, popupForm, saveButton, closePopup,
 import { events } from './storage.js';
 import { displayCurrentWeek, currentWeek } from './display-current-week.js';
 import { deleteEvent } from './delete-event.js';
-import { saveNewEvent } from './save-event.js';
+import { editSaveHandler } from './save-event.js';
 import { renderEvents, mapEvents } from './displaying-events.js';
 import { renderCalendar } from './render-calendar.js';
 
@@ -17,33 +17,52 @@ export {
 }
 
 const weekBar = document.querySelector('.calendar__week-bar');
+
 weekBar.addEventListener('click', createPopup);
-weekBar.addEventListener('click', editEventHandler, true);
+
+//TODO disscuss later       
+weekBar.addEventListener('click', commonHandler, true);
 
 //const deleteButton = document.querySelector('.popup__action_delete');
 
+function commonHandler(event) {
+    //const targetEventId = event.target.getAttribute('data-id');
+
+    // if(targetEventId)
+        //TODO call save
+    // else
+    //     editEventHandler(event);
+
+    //event.stopPropagation();
+    //renderCorrectPopup(clickedObjEvent);
+
+
+}
+
 function editEventHandler(event) {
+    const clickedObjEvent = events.find(event => {        
+        return targetEventId == event.id;
+    });
+
+
     if (!event.target.classList.contains('day-event')) return;
 
     const targetEventId = event.target.getAttribute('data-id');
   //  const allEventsOnPage = weekBar.querySelectorAll('.day-event');
     console.log(targetEventId);
 
-    const clickedObjEvent = events.find(event => {        
-        return targetEventId == event.id;
-    });
+    // const clickedObjEvent = events.find(event => {        
+    //     return targetEventId == event.id;
+    // });
 
-    event.stopPropagation();
-    renderCorrectPopup(clickedObjEvent);
+    // event.stopPropagation();
+    // renderCorrectPopup(clickedObjEvent);
 
 
 }
 
 
 function renderCorrectPopup(obj) {
-
-    
-
     formFieldPopUp.title.value = obj.title;
     formFieldPopUp.dateFrom.value = obj.dateFrom.toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = obj.dateTo.toLocaleDateString().split('.').reverse().join('-');
@@ -57,11 +76,9 @@ function renderCorrectPopup(obj) {
     deleteButton.style.visibility = 'visible';
     popup.style.display = 'block';
 
-    const handlerDeleteEvent = deleteButton.addEventListener('click', deleteEvent.bind(deleteButton, obj));
+    //const handlerDeleteEvent = deleteButton.addEventListener('click', deleteEvent.bind(deleteButton, obj));
 
     switcher();
-
-
 }
 
 function switcher() {
@@ -151,3 +168,10 @@ function editObjEvent(event) {
 // popupForm.addEventListener('submit', saveNewEvent);
 // popupForm.addEventListener('submit', editExistedEvent);
 
+
+
+// SAVE / EDIT - algo
+// add 1 listener to the botton +++ 
+// use common handler - call save if no ID , call edit if ID is present
+// implement save
+// implement edit
