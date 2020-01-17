@@ -1,6 +1,6 @@
 import { events } from './storage.js';
 import { popupForm, saveButton, closePopup } from './create-popup.js';
-import { saveNewEvent } from './save-event.js';
+import { editSaveHandler } from './save-event.js';
 
 
  export { durationValidation };
@@ -16,7 +16,7 @@ function durationValidation(event) {
         alert('Exceeded duration limit!');
         closePopup();
     } else {
-        saveNewEvent(event);
+        editSaveHandler(event);
     }
 }
 // popupForm.addEventListener('submit', durationValidation);
@@ -37,6 +37,6 @@ function validationBeforeEventStarts(event) {
     if (dateOfEvent.getDate() == currentDate.getDate()) {
         dateOfEvent.getTime() - currentDate.getTime() > mins ?
             alert('Forbidden! The event is too soon.') :
-            saveNewEvent(event);
+            editSaveHandler(event);
     }
 }
