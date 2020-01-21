@@ -1,4 +1,6 @@
 import { currentWeek } from './render-current-week.js';
+import { createPopup } from './create-popup.js';
+
 
 export { renderCalendar };
  
@@ -22,10 +24,10 @@ const renderCalendar = () => {
             hour.setAttribute('data-day', i - 1);
             hour.setAttribute('data-hour', j - 1);
             hour.setAttribute('data-date', currentWeek[i - 1]);
-            //TODO detele it
-            hour.setAttribute('data-id', `${i - 1}${j - 1}`);
 
             day.append(hour);
         }
     }
+    week.addEventListener('click', createPopup);
+
 }

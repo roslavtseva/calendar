@@ -1,50 +1,43 @@
 import { setItemToStorage, getItemFromStorage } from './storage.js';
-import { createPopup } from './create-popup.js';
 
-
-export {
-    renderEvents,
-    mapEvents,
-};
+export { renderEvents, mapEvents };
 
 
 function mapEvents() {
     const events = getItemFromStorage('events') || [];
-    console.log(events);
 
     const newEvents = [];
     
     events.forEach(event => {
 
         if (new Date(event.dateFrom).getDate() !== new Date(event.dateTo).getDate()) {
-            const firstToYear = new Date(event.dateFrom).getFullYear();
-            const firstToMonth = new Date(event.dateFrom).getMonth();
-            const firstToDate = new Date(event.dateFrom).getDate();
-            const firstToFullDate = new Date(firstToYear, firstToMonth, firstToDate, 23, 59);
-
-            const secondFromYear = new Date(event.dateTo).getFullYear();
-            const secondFromMonth = new Date(event.dateTo).getMonth();
-            const secondFromDate = new Date(event.dateTo).getDate();
-            const secondFromFullDate = new Date(secondFromYear, secondFromMonth, secondFromDate);
-            const id = event.id;
-            const eventColor = event.colorChooser;
 
             const firstObjectEvent = {
                 title: event.title,
                 dateFrom: event.dateFrom,
-                dateTo: firstToFullDate,
+                dateTo: new Date(
+                    new Date(event.dateFrom).getFullYear(),
+                    new Date(event.dateFrom).getMonth(),
+                    new Date(event.dateFrom).getDate(),
+                    23,
+                    59
+                    ),
                 description: event.description,
-                colorChooser: eventColor,
-                id: id,
+                colorChooser: event.colorChooser,
+                id: event.id,
             };
 
             const secondObjectEvent = {
                 title: event.title,
-                dateFrom: secondFromFullDate,
+                dateFrom: new Date(
+                    new Date(event.dateTo).getFullYear(),
+                    new Date(event.dateTo).getMonth(),
+                    new Date(event.dateTo).getDate(),
+                    ),
                 dateTo: event.dateTo,
                 description: event.description,
-                colorChooser: eventColor,
-                id: id,
+                colorChooser: event.colorChooser,
+                id: event.id,
             };
             newEvents.push(firstObjectEvent, secondObjectEvent);
 
@@ -52,6 +45,7 @@ function mapEvents() {
             newEvents.push(event);
         }
     });
+
     setItemToStorage('events', newEvents);
     return newEvents;
 }
@@ -67,6 +61,8 @@ function renderEvents() {  // display already splitted and generated new array
             eventDiv.remove();
         }
     });
+    
+    console.log(newEvents);
 
     return newEvents.map(event => {
         const eventDiv = document.createElement('div');
@@ -84,15 +80,13 @@ function renderEvents() {  // display already splitted and generated new array
         ${description}`;
 
         const allHours = document.querySelectorAll('.calendar__hour-bar');
-        const hourBar = [...allHours].find(event => {
-            let id = `${new Date(dateFrom).getDay()}${new Date(dateFrom).getHours()}`;
-            return event.dataset.id == id;
+        const hourBar = [...allHours].find(hour => {
+            const newEventId = `${new Date(dateFrom).getDate()}${new Date(dateFrom).getHours()}${new Date(dateFrom).getMonth()}`;
+            const hourBarId = `${new Date(hour.dataset.date).getDate()}${hour.dataset.hour}${new Date(hour.dataset.date).getMonth()}`;
+            return newEventId == hourBarId;
         });
 
-        const dateOfbar = new Date(hourBar.dataset.date).getDate();
-        if (dateOfbar == new Date(dateFrom).getDate()) {
-            hourBar.append(eventDiv);
-        }
+        if (hourBar) hourBar.append(eventDiv);
 
         const divSize = (new Date(dateTo) - new Date(dateFrom)) / 1000 / 60;
         eventDiv.style.height = `${divSize}px`;
@@ -101,9 +95,5 @@ function renderEvents() {  // display already splitted and generated new array
         eventDiv.style.marginTop = `${divMargin}px`;
 
         eventDiv.style.background = `${event.colorChooser}`;
-
-
-        // const weekBar = document.querySelector('.calendar__week-bar');
-        // weekBar.addEventListener('click', createPopup);
     });
 }

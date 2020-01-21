@@ -2,7 +2,9 @@ import { createDaysOfWeek } from './render-week.js';
 import { renderCalendar } from './render-calendar.js';
 import { renderEvents } from './render-events.js';
 
-export { currentWeek,
+
+export { 
+    currentWeek,
     displayCurrentWeek,
     switchWeekForward,
     switchWeekBackward,
@@ -46,7 +48,7 @@ const displayCurrentWeek = (week) => {
     displayMonth(currentWeek);
     createDaysOfWeek(currentWeek);
     renderCalendar();
-    renderEvents();    
+    renderEvents();  
 };
 
 displayCurrentWeek(currentWeek);

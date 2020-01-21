@@ -1,24 +1,27 @@
 import { setItemToStorage, getItemFromStorage } from './storage.js';
 import { renderEvents } from './render-events.js';
-import { closePopup } from './create-popup.js';
+import { closePopup, deleteButton } from './create-popup.js';
 
 export { deleteEvent };
 
-const deleteBtn = document.querySelector('.popup__action_delete');
 
-
-deleteBtn.addEventListener('click', deleteEvent);
-function deleteEvent(obj) {
+function deleteEvent(event) {
     const events = getItemFromStorage('events');
 
-    for (let i = 0; i < events.length; i++) {
+    const parentPopup = deleteButton.closest('.popup');
+    const clickedEventId = new FormData(parentPopup).get('id');
 
-        if (obj.id === events[i].id) {
+    for (let i = 0; i < events.length; i++) {
+        
+        if (clickedEventId == events[i].id) {
             events.splice(i, 1);
+            i--;
         }
-    }
+    };
+
     setItemToStorage('events', events);
     renderEvents();
     closePopup();
 };
 
+deleteButton.addEventListener('click', deleteEvent);
