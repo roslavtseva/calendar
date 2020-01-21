@@ -6,7 +6,6 @@ const redLine = document.querySelector(".redline");
 const currentHourBar = displayRedLineOnCurrentHourBar();
 
 export function renderRedLine() {
-  // redLine.classList.add("redline");
 
   const dot = document.createElement("div");
   dot.classList.add("dot");
@@ -18,12 +17,14 @@ export function renderRedLine() {
   redLine.append(line);
 
   currentHourBar.append(redLine);
-  
 }
 
 renderRedLine();
 
 function displayRedLineOnCurrentHourBar() {
+
+  // renderRedLine();
+
   const hourContainer = document.querySelectorAll(".calendar__hour-bar");
 
   const currentDate = new Date();

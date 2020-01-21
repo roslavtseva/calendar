@@ -1,31 +1,27 @@
-import { events } from './storage.js';
-import { renderEvents } from './displaying-events.js';
-import { editEventHandler } from './edit-event.js';
+import { setItemToStorage, getItemFromStorage } from './storage.js';
+import { renderEvents } from './render-events.js';
+import { closePopup, deleteButton } from './create-popup.js';
 
 export { deleteEvent };
 
-//const event = document.querySelector('.day-event');
-const popupModal = document.querySelector('.popup-modal');
-const deleteBtn = document.querySelector('.popup__action_delete');
 
-const handlerDeleteEvent = deleteBtn.addEventListener('click', deleteEvent);
+function deleteEvent(event) {
+    const events = getItemFromStorage('events');
 
-
-
-function deleteEvent(obj) {
-
+    const parentPopup = deleteButton.closest('.popup');
+    const clickedEventId = new FormData(parentPopup).get('id');
 
     for (let i = 0; i < events.length; i++) {
-
-
-        if (obj.id === events[i].id) {
+        
+        if (clickedEventId == events[i].id) {
             events.splice(i, 1);
-
-            renderEvents();
+            i--;
         }
-        popupModal.style.display = 'none';
-    }
+    };
 
-    console.log(events);
+    setItemToStorage('events', events);
+    renderEvents();
+    closePopup();
 };
 
+deleteButton.addEventListener('click', deleteEvent);

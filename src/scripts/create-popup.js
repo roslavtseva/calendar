@@ -1,5 +1,5 @@
-import { currentWeek } from './display-current-week.js';
-import { events } from './storage.js';
+import { currentWeek } from './render-current-week.js';
+import { getItemFromStorage } from './storage.js';
 
 export {
     popup,
@@ -9,25 +9,20 @@ export {
     closePopup,
     createPopup,
     createPopupButton,
-    formFieldPopUp
+    formFieldPopUp,
+    // weekBar
 };
+
+const weekBar = document.querySelector('.calendar__week-bar');
 
 const popup = document.querySelector('.popup-modal');
 const popupForm = document.querySelector('.popup');
 
-
 const createButton = document.querySelector('.header__button_create');
-
-
-const calendarDays = document.querySelector('.calendar');
-// const weekBar = document.querySelector('.calendar__week-bar'); // not created yet
-const dayCell = document.querySelector('.calendar__hour-bar');
 
 const buttonClose = document.querySelector('.popup__header_close-btn');
 const saveButton = document.querySelector('.popup__action_save');
 const deleteButton = document.querySelector('.popup__action_delete');
-
-
 
 const formFieldPopUp = {
     title: document.querySelector('.popup__header_title-input'),
@@ -44,6 +39,7 @@ const formFieldPopUp = {
 
 function createPopup(event) {
     const targetEventId = event.target.getAttribute('data-id');
+    const events = getItemFromStorage('events') || [];
 
     if(!targetEventId) { 
         closePopup();
@@ -62,8 +58,10 @@ function createPopup(event) {
             formFieldPopUp.timeFrom.value = `0${event.target.dataset.hour}:00`;
             formFieldPopUp.timeTo.value = `0${+event.target.dataset.hour + 1}:00`;
         }
+        formFieldPopUp.color.value = '#293dce';
         popup.style.display = 'block';
         deleteButton.style.visibility = 'hidden';
+        return;
     }
 
     const clickedObjEvent = events.find(event => {        
@@ -71,13 +69,14 @@ function createPopup(event) {
     });
 
     formFieldPopUp.title.value = clickedObjEvent.title;
-    formFieldPopUp.dateFrom.value = clickedObjEvent.dateFrom.toLocaleDateString().split('.').reverse().join('-');
-    formFieldPopUp.dateTo.value = clickedObjEvent.dateTo.toLocaleDateString().split('.').reverse().join('-');
+    formFieldPopUp.dateFrom.value = new Date(clickedObjEvent.dateFrom).toLocaleDateString().split('.').reverse().join('-');
+    formFieldPopUp.dateTo.value = new Date(clickedObjEvent.dateTo).toLocaleDateString().split('.').reverse().join('-');
 
-    formFieldPopUp.timeFrom.value = clickedObjEvent.dateFrom.toLocaleTimeString();
-    formFieldPopUp.timeTo.value = clickedObjEvent.dateTo.toLocaleTimeString();
+    formFieldPopUp.timeFrom.value = new Date(clickedObjEvent.dateFrom).toLocaleTimeString();
+    formFieldPopUp.timeTo.value = new Date(clickedObjEvent.dateTo).toLocaleTimeString();
 
     formFieldPopUp.description.value = clickedObjEvent.description;
+    formFieldPopUp.color.value = clickedObjEvent.colorChooser;
     formFieldPopUp.id.value = clickedObjEvent.id;
 
     deleteButton.style.visibility = 'visible';
@@ -86,8 +85,13 @@ function createPopup(event) {
     deleteButton.dataset.id = event.target.dataset.id;
 };
 
+// weekBar.addEventListener('click', createPopup);
+
+
+
 
 function createPopupButton() {
+
     const date = new Date();
     formFieldPopUp.dateFrom.value = date.toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = date.toLocaleDateString().split('.').reverse().join('-');
@@ -107,37 +111,23 @@ function createPopupButton() {
     popup.style.display = 'block';
     deleteButton.style.visibility = 'hidden';
 };
+
 createButton.addEventListener('click', createPopupButton); 
 
 
-function closePopup() {
-    const currentPopupTitle = document.querySelector('.popup__header_title-input');
-    currentPopupTitle.value= '';
 
-    const currentPopupDescription = document.querySelector('.popup__description_text');
-    currentPopupDescription.value= '';
+
+function closePopup() {
+    const popupTitle = document.querySelector('.popup__header_title-input');
+    popupTitle.value= '';
+
+    const popupDescription = document.querySelector('.popup__description_text');
+    popupDescription.value= '';
+
+    const popupId = document.querySelector('.popup__id');
+    popupId.value = '0';
 
     popup.style.display = 'none';
+};
 
-}
 buttonClose.addEventListener('click', closePopup); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
