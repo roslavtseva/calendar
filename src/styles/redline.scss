@@ -4,20 +4,21 @@
     align-items: center;
     position: absolute;
     height: 8px;
-    z-index: 2;
+    z-index: 3;
     margin-top: 0px;
 }
 
 .line {
     position: relative;
-    background-color: $red;
     height: 2px;
     width: 100%;
+    background-color: $blue-lagoon;
+
 }
 .dot {
     position: relative;
     border-radius: 100%;
-    background-color: $red;
+    background-color: $blue-lagoon;
     height: 8px;
     width: 8px;
 

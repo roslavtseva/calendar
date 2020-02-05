@@ -338,21 +338,21 @@ html {
   align-items: center;
   position: absolute;
   height: 8px;
-  z-index: 2;
+  z-index: 3;
   margin-top: 0px;
 }
 
 .line {
   position: relative;
-  background-color: #ea4335;
   height: 2px;
   width: 100%;
+  background-color: #50f2e2;
 }
 
 .dot {
   position: relative;
   border-radius: 100%;
-  background-color: #ea4335;
+  background-color: #50f2e2;
   height: 8px;
   width: 8px;
 }
