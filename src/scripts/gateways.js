@@ -2,17 +2,21 @@ import { setItemToStorage, getItemFromStorage, getEventsFromLocal, deleteEvent }
 //import { deleteEvent } from './delete-event.js';
 import { renderEvents, mapEvents  } from './render-events.js';
 
-const baseUrl = 'https://crudcrud.com/api/af47d437cfe745409c7c4ca9d84a2dc9';
+const baseUrl = 'https://crudcrud.com/api/85a971d18bef4d8cba22546c94e56eee';
 
+//console.log('blabla');
 
 
 function getEventList() {
     return fetch(baseUrl)
         .then((response) => response.json())
         .then((events) => mapEvents(events));
+      //  getItemFromStorage(eventlist);
 };
 
 function addNewEvent(event) {
+
+    console.log(baseUrl);
     return fetch(baseUrl)
         .then(baseUrl, {
             method: 'POST',
