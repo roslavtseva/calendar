@@ -1,5 +1,5 @@
 import { currentWeek } from './render-current-week.js';
-import { getItemFromStorage } from './storage.js';
+import { getItemFromStorage } from './storage.js';  
 
 export {
     popup,
