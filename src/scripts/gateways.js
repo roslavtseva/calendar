@@ -4,7 +4,9 @@ import { renderEvents, mapEvents  } from './render-events.js';
 
 const baseUrl = 'https://crudcrud.com/api/85a971d18bef4d8cba22546c94e56eee';
 
-//console.log('blabla');
+//console.log('blabla');  
+
+
 
 
 function getEventList() {
