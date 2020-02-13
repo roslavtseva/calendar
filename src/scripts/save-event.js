@@ -1,13 +1,14 @@
-import { setItemToStorage, getItemFromStorage } from './storage.js';
+
 import { renderEvents } from './render-events.js';
 import { popupForm, closePopup } from './create-popup.js';
+import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
+
 
 export { editSaveHandler };
 
 const editSaveHandler = event => {
 
     event.preventDefault();
-    const events = getItemFromStorage('events') || [];
 
     const formData = [...new FormData(popupForm)];
     const newEvent = formData.reduce((acc, item) => {
@@ -16,33 +17,28 @@ const editSaveHandler = event => {
     }, {});
 
     const timeFrom = (newEvent.timeFrom).split(':');
-    newEvent.dateFrom = new Date(new Date(newEvent.dateFrom).setHours(+timeFrom[0], +timeFrom[1]));
+    newEvent.dateFrom = new Date(new Date(newEvent.dateFrom).setHours(+timeFrom[0], +timeFrom[1])).toISOString();
     const timeTo = (newEvent.timeTo).split(':');
-    newEvent.dateTo = new Date(new Date(newEvent.dateTo).setHours(+timeTo[0], +timeTo[1]));
-
+    newEvent.dateTo = new Date(new Date(newEvent.dateTo).setHours(+timeTo[0], +timeTo[1])).toISOString();
     if (newEvent.id === "0") {
-        newEvent.id = Math.floor(Math.random() * 1000);
 
         if (newEvent.title == '') {
             newEvent.title = 'No Title';
         }
-        events.push(newEvent);
+        addNewEvent(newEvent)
+        .catch(error =>  console.log('save error'));
         
     } else {
 
-        events.map((event, index) => {
-            if (newEvent.id == event.id) {
-                events.splice(index, 1);
-            }
-            return event;
-        });
-        events.push(newEvent);
+       updateEvent(newEvent)
+       .catch (error => console.log('update error'))
     }
 
-    setItemToStorage('events', events);
+
     closePopup();
     renderEvents();
     console.log(events);
 }
 
 popupForm.addEventListener('submit', editSaveHandler);
+

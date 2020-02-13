@@ -1,5 +1,7 @@
 import { currentWeek } from './render-current-week.js';
-import { getItemFromStorage } from './storage.js';  
+
+import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
+
 
 export {
     popup,
@@ -39,7 +41,7 @@ const formFieldPopUp = {
 
 function createPopup(event) {
     const targetEventId = event.target.getAttribute('data-id');
-    const events = getItemFromStorage('events') || [];
+    const events = getEventList('events') || [];
 
     if(!targetEventId) { 
         closePopup();
@@ -85,7 +87,7 @@ function createPopup(event) {
     deleteButton.dataset.id = event.target.dataset.id;
 };
 
-// weekBar.addEventListener('click', createPopup);
+
 
 
 

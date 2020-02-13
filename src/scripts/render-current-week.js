@@ -1,6 +1,7 @@
 import { createDaysOfWeek } from './render-week.js';
 import { renderCalendar } from './render-calendar.js';
 import { renderEvents } from './render-events.js';
+import { renderE } from './render-events.js';
 
 
 export { 
@@ -48,7 +49,7 @@ const displayCurrentWeek = (week) => {
     displayMonth(currentWeek);
     createDaysOfWeek(currentWeek);
     renderCalendar();
-    renderEvents();  
+    renderE();  
 };
 
 displayCurrentWeek(currentWeek);

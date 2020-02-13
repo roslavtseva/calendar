@@ -1,10 +1,12 @@
-import { setItemToStorage, getItemFromStorage } from './storage.js';
 
-export { renderEvents, mapEvents };
+import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
 
 
-function mapEvents() {
-    const events = getItemFromStorage('events') || [];
+export { renderEvents, mapEvents, renderE };
+
+
+function mapEvents(events) {
+
 
     const newEvents = [];
     
@@ -46,11 +48,10 @@ function mapEvents() {
         }
     });
 
-    setItemToStorage('events', newEvents);
     return newEvents;
 }
 
-function renderEvents() {  // display already splitted and generated new array
+function renderEvents(events) {  // display already splitted and generated new array
     const newEvents = mapEvents();
 
     const hourBar = document.querySelectorAll('.calendar__hour-bar');
@@ -96,4 +97,12 @@ function renderEvents() {  // display already splitted and generated new array
 
         eventDiv.style.background = `${event.colorChooser}`;
     });
-}
+};
+
+
+const renderE = () => {
+    getEventList()
+    .then (events => mapEvents(events))
+    .then (events => renderEvents(events))
+    .catch (error => console.log('render error'))
+};

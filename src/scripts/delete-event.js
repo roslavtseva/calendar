@@ -1,25 +1,27 @@
-import { setItemToStorage, getItemFromStorage } from './storage.js';
+
 import { renderEvents } from './render-events.js';
 import { closePopup, deleteButton } from './create-popup.js';
+import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
 
 export { deleteEvent };
 
 
 function deleteEvent(event) {
-    const events = getItemFromStorage('events');
+
 
     const parentPopup = deleteButton.closest('.popup');
     const clickedEventId = new FormData(parentPopup).get('id');
 
-    for (let i = 0; i < events.length; i++) {
+    // for (let i = 0; i < events.length; i++) {
         
-        if (clickedEventId == events[i].id) {
-            events.splice(i, 1);
-            i--;
-        }
-    };
+    //     if (clickedEventId == events[i].id) {
+    //         events.splice(i, 1);
+    //         i--;
+    //     }
+    // };
 
-    setItemToStorage('events', events);
+    eventDelete(clickedEventId);
+
     renderEvents();
     closePopup();
 };
