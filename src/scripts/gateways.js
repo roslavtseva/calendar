@@ -1,8 +1,8 @@
 //import { setItemToStorage, getItemFromStorage, getEventsFromLocal, deleteEvent } from './storage.js';
 //import { deleteEvent } from './delete-event.js';
-import { renderEvents, mapEvents  } from './render-events.js';
+import { mapEvents  } from './render-events.js';
 
-const baseUrl = 'https://crudcrud.com/api/547c949048a2484086555fd8d9697b74/events';
+const baseUrl = 'https://crudcrud.com/api/4b84831be35949378841dc3ca93991fd/events';
 
 
 

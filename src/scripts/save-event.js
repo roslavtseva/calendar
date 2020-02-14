@@ -1,7 +1,7 @@
 
-import { renderEvents } from './render-events.js';
 import { popupForm, closePopup } from './create-popup.js';
 import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
+import { renderE } from './render-events.js';
 
 
 export { editSaveHandler };
@@ -9,6 +9,7 @@ export { editSaveHandler };
 const editSaveHandler = event => {
 
     event.preventDefault();
+
 
     const formData = [...new FormData(popupForm)];
     const newEvent = formData.reduce((acc, item) => {
@@ -25,19 +26,21 @@ const editSaveHandler = event => {
         if (newEvent.title == '') {
             newEvent.title = 'No Title';
         }
-        addNewEvent(newEvent)
+        const { id, ...rest } = newEvent;
+        addNewEvent(rest)
         .catch(error =>  console.log('save error'));
         
+        
     } else {
-
-       updateEvent(newEvent)
+        const { id, ...rest } = newEvent;
+       updateEvent(rest)
        .catch (error => console.log('update error'))
     }
 
 
     closePopup();
-    renderEvents();
-    console.log(events);
+    renderE();
+
 }
 
 popupForm.addEventListener('submit', editSaveHandler);

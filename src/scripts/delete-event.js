@@ -1,5 +1,5 @@
 
-import { renderEvents } from './render-events.js';
+import { renderE } from './render-events.js';
 import { closePopup, deleteButton } from './create-popup.js';
 import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
 
@@ -22,7 +22,7 @@ function deleteEvent(event) {
 
     eventDelete(clickedEventId);
 
-    renderEvents();
+    renderE();
     closePopup();
 };
 

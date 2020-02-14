@@ -2,7 +2,7 @@
 import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
 
 
-export { renderEvents, mapEvents, renderE };
+export { mapEvents, renderE };
 
 
 function mapEvents(events) {
@@ -51,7 +51,7 @@ function mapEvents(events) {
     return newEvents;
 }
 
-function renderEvents(events) {  // display already splitted and generated new array
+function renderEvent(events) {  // display already splitted and generated new array
     const newEvents = mapEvents();
 
     const hourBar = document.querySelectorAll('.calendar__hour-bar');
@@ -102,7 +102,14 @@ function renderEvents(events) {  // display already splitted and generated new a
 
 const renderE = () => {
     getEventList()
-    .then (events => mapEvents(events))
-    .then (events => renderEvents(events))
-    .catch (error => console.log('render error'))
+    .then (events => {
+        console.log(events)
+         return mapEvents(events)
+
+    }) 
+    .then (events => {
+        console.log(events)
+        renderEvent(events)
+    })
+    // .catch (error => console.log('render error'))
 };
