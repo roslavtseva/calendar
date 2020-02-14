@@ -26,7 +26,7 @@ const backwardSwitcherBtn = document.querySelector('.header__week-toggle_chevron
 const monthAndYear = document.querySelector('.header__current-month-year');
 
 
-const displayCurrentWeek = (week) => {
+const displayCurrentWeek = (week) => { //відображ тижня
     const currentDate = new Date().getDate();
     const currentDay = new Date().getDay();
     let counterPrev = currentDay;
@@ -54,7 +54,7 @@ const displayCurrentWeek = (week) => {
 displayCurrentWeek(currentWeek);
 
 const todayBtn = document.querySelector('.header__button_today');
-const todayWeekSwitcher = () => {
+const todayWeekSwitcher = () => { //повернення на тудей
     displayCurrentWeek(currentWeek);
     renderCalendar();
     renderE();
@@ -64,7 +64,7 @@ const switchToTodaysWeek = todayBtn.addEventListener('click', todayWeekSwitcher)
 
 
 
-function forwardSwitcher(currentWeek) {
+function forwardSwitcher(currentWeek) { //переключатель вперед
     let newWeek = [...currentWeek];
 
     newWeek.map(dateOfDay => {
@@ -81,7 +81,7 @@ const switchWeekForward = forwardSwitcherBtn.addEventListener('click', forwardSw
 
 
 
-const backwardSwitcher = (currentWeek) => {
+const backwardSwitcher = (currentWeek) => { //переключатель назад
     let newWeek = [...currentWeek];
 
     newWeek.map(dateOfDay => {
@@ -98,7 +98,7 @@ const switchWeekBackward = backwardSwitcherBtn.addEventListener('click', backwar
 
 
 
-function displayMonth(week) {
+function displayMonth(week) { //відображ місяця
     let arrMonth = [];
     let arrYear = [];
     let result;

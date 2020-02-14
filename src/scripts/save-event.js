@@ -6,7 +6,7 @@ import { renderE } from './render-events.js';
 
 export { editSaveHandler };
 
-const editSaveHandler = event => {
+const editSaveHandler = event => { //ств можливість редагувати івент
 
     event.preventDefault();
 
@@ -23,7 +23,7 @@ const editSaveHandler = event => {
     newEvent.dateTo = new Date(new Date(newEvent.dateTo).setHours(+timeTo[0], +timeTo[1])).toISOString();
     if (newEvent.id === "0") {
 
-        if (newEvent.title == '') {
+        if (newEvent.title == '') { //якщо в тайтл нічо не прийшло
             newEvent.title = 'No Title';
         }
         const { id, ...rest } = newEvent;

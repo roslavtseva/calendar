@@ -6,7 +6,7 @@ import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.
 export { deleteEvent };
 
 
-function deleteEvent(event) {
+function deleteEvent(event) { //видаляю
 
 
     const parentPopup = deleteButton.closest('.popup');
@@ -22,7 +22,7 @@ function deleteEvent(event) {
 
     eventDelete(clickedEventId);
 
-    renderE();
+    renderE();//перерегдерю
     closePopup();
 };
 

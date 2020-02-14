@@ -4,7 +4,7 @@ import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.
 
 export { mapEvents, renderE };
 
-
+//ця функція призначена для того щоб івенти який поширюється на два дні був в результаті цілісним
 function mapEvents(events) {
 
 
@@ -41,17 +41,17 @@ function mapEvents(events) {
                 colorChooser: event.colorChooser,
                 id: event.id,
             };
-            newEvents.push(firstObjectEvent, secondObjectEvent);
+            newEvents.push(firstObjectEvent, secondObjectEvent); //спліт
 
         } else {
             newEvents.push(event);
         }
     });
 
-    return newEvents;
+    return newEvents; //повертає готовий з'єднаний івент
 }
 
-function renderEvent(events) {  // display already splitted and generated new array
+function renderEvent(events) {  // відображає вже зєднаний івент
     const newEvents = mapEvents();
 
     const hourBar = document.querySelectorAll('.calendar__hour-bar');
@@ -65,7 +65,7 @@ function renderEvent(events) {  // display already splitted and generated new ar
     
     console.log(newEvents);
 
-    return newEvents.map(event => {
+    return newEvents.map(event => { //повертаємо новий івент вже напічканий правильною інфою
         const eventDiv = document.createElement('div');
         eventDiv.classList.add('day-event');
         eventDiv.setAttribute('data-id', event.id);
@@ -99,7 +99,7 @@ function renderEvent(events) {  // display already splitted and generated new ar
     });
 };
 
-
+// РЕНДЕР обновленого списку івентів
 const renderE = () => {
     getEventList()
     .then (events => {
