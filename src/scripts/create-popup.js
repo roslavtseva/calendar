@@ -41,7 +41,7 @@ const formFieldPopUp = {
 
 function createPopup(event) {
     const targetEventId = event.target.getAttribute('data-id');
-    const events = getEventList('events') || [];
+    getEventList(events);
 
     if(!targetEventId) { 
         closePopup();
@@ -64,11 +64,11 @@ function createPopup(event) {
         popup.style.display = 'block';
         deleteButton.style.visibility = 'hidden';
         return;
+        
     }
-
-    const clickedObjEvent = events.find(event => {        
-        return targetEventId == event.id;
-    });
+        const clickedObjEvent = events.find(event => {        
+            return targetEventId == event.id;
+        });
 
     formFieldPopUp.title.value = clickedObjEvent.title;
     formFieldPopUp.dateFrom.value = new Date(clickedObjEvent.dateFrom).toLocaleDateString().split('.').reverse().join('-');

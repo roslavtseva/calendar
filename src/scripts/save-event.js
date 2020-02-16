@@ -28,6 +28,9 @@ const editSaveHandler = event => { //ств можливість редагув�
         }
         const { id, ...rest } = newEvent;
         addNewEvent(rest)
+        .then(() => {
+            renderE();
+        })
         .catch(error =>  console.log('save error'));
         
         
@@ -39,7 +42,7 @@ const editSaveHandler = event => { //ств можливість редагув�
 
 
     closePopup();
-    renderE();
+
 
 }
 

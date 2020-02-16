@@ -8,9 +8,9 @@ export { mapEvents, renderE };
 function mapEvents(events) {
 
 
-    const newEvents = [];
+    const newEvents = []; // ініціалізую пустий масив для нових івентів
     
-    events.forEach(event => {
+    events.forEach(event => { //перебираю івенти 
 
         if (new Date(event.dateFrom).getDate() !== new Date(event.dateTo).getDate()) {
 
@@ -52,7 +52,7 @@ function mapEvents(events) {
 }
 
 function renderEvent(events) {  // відображає вже зєднаний івент
-    const newEvents = mapEvents();
+    const newEvents = mapEvents(events);
 
     const hourBar = document.querySelectorAll('.calendar__hour-bar');
     

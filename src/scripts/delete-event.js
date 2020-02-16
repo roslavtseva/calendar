@@ -12,13 +12,6 @@ function deleteEvent(event) { //видаляю
     const parentPopup = deleteButton.closest('.popup');
     const clickedEventId = new FormData(parentPopup).get('id');
 
-    // for (let i = 0; i < events.length; i++) {
-        
-    //     if (clickedEventId == events[i].id) {
-    //         events.splice(i, 1);
-    //         i--;
-    //     }
-    // };
 
     eventDelete(clickedEventId);
 
