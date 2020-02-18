@@ -2,7 +2,7 @@
 //import { deleteEvent } from './delete-event.js';
 import { mapEvents  } from './render-events.js';
 
-const baseUrl = 'https://crudcrud.com/api/2047ac330bc24918ba2528637e09c602/events';
+const baseUrl = 'https://crudcrud.com/api/3574aebb50e34223a90bb45569ba31e2/events';
 
 
 
@@ -52,5 +52,8 @@ const eventDelete = (idEvent) => fetch ( `${baseUrl}/${eventId}`, {
     })
     .catch((err) => console.log(err));
 
+    //const findById
+//приймає id  і поверт обєкт
+//заюзати в кріейт попап
 
 export { eventDelete, updateEvent, addNewEvent, getEventList};
