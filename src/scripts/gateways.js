@@ -2,7 +2,7 @@
 //import { deleteEvent } from './delete-event.js';
 import { mapEvents  } from './render-events.js';
 
-const baseUrl = 'https://crudcrud.com/api/3574aebb50e34223a90bb45569ba31e2/events';
+const baseUrl = 'https://crudcrud.com/api/485f3d9fadc640f5a6cc85bbe3104d34/events';
 
 
 
@@ -43,7 +43,10 @@ const updateEvent = (eventId, updatedData) => fetch( `${baseUrl}/${eventId}`, {
            return response.json();  
         } 
         throw new Error('failed to update event')
-    });
+        
+    })
+        .then(({_id, ...event}) => ({...event, id:_id}));
+
 
 
 
@@ -52,8 +55,23 @@ const eventDelete = (idEvent) => fetch ( `${baseUrl}/${eventId}`, {
     })
     .catch((err) => console.log(err));
 
+
+
+// consy findById = () => {
+
+// };
     //const findById
 //приймає id  і поверт обєкт
 //заюзати в кріейт попап
 
-export { eventDelete, updateEvent, addNewEvent, getEventList};
+const getOneEvent = (eventId) => fetch( `${baseUrl}/${eventId}`)
+.then((response) => { 
+    if(response.ok){
+       return response.json();  
+    } 
+    throw new Error('failed to edit event')
+    
+})
+.then(({_id, ...event}) => ({...event, id:_id}));
+
+export { eventDelete, updateEvent, addNewEvent, getEventList, getOneEvent};

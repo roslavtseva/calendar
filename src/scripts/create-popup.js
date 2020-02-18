@@ -1,6 +1,6 @@
 import { currentWeek } from './render-current-week.js';
 
-import { eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
+import {getOneEvent, eventDelete, updateEvent, addNewEvent, getEventList } from './gateways.js';
 
 
 export {
@@ -66,13 +66,12 @@ function createPopup(event) {
         return;
         
     }
-        // const clickedObjEvent = events.find(event => {        
-        //     return targetEventId == event.id;
-        // });
-        //замінити викликом гейтвею
-        
 
-    formFieldPopUp.title.value = clickedObjEvent.title;
+
+    getOneEvent(targetEventId)
+    .then(clickedObjEvent => {
+        formFieldPopUp.title.value = clickedObjEvent.title;
+        console.log(clickedObjEvent);
     formFieldPopUp.dateFrom.value = new Date(clickedObjEvent.dateFrom).toLocaleDateString().split('.').reverse().join('-');
     formFieldPopUp.dateTo.value = new Date(clickedObjEvent.dateTo).toLocaleDateString().split('.').reverse().join('-');
 
@@ -87,6 +86,10 @@ function createPopup(event) {
     popup.style.display = 'block';
 
     deleteButton.dataset.id = event.target.dataset.id;
+    })
+        
+
+    
 };
 
 
