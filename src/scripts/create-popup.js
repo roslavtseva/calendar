@@ -68,7 +68,7 @@ function createPopup(event) {
     }
 
 
-    getOneEvent(targetEventId)
+    getOneEvent(targetEventId) 
     .then(clickedObjEvent => {
         formFieldPopUp.title.value = clickedObjEvent.title;
         console.log(clickedObjEvent);
