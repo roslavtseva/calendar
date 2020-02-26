@@ -10,8 +10,3 @@ import { deleteEvent } from './delete-event.js';
 import { durationValidation } from './validating-form.js';
 import { renderRedLine } from './redline.js';
 import { eventDelete, updateEvent, addNewEvent, getEventList} from './gateways.js';
-
-
-
-  
-
